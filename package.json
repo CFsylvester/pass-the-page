@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "nodemon server.js"
+    "watch": "nodemon server.js",
+    "test": "jest",
+    "seeds": "node seeds/index.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "nodemon server.js",
     "test": "jest",
-    "seeds": "node seeds/index.js",
+    "seeds": "node db/seeds.js",
     "start": "node server.js"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "handlebars": "^4.7.6",
     "jest": "^26.6.3",
     "mysql2": "^2.2.5",
+    "natural": "^2.1.5",
     "nodemon": "^2.0.6",
     "sequelize": "^6.3.5"
   }

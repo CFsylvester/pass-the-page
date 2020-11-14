@@ -14,12 +14,13 @@ const routes = require('./controllers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// enable session and expires after 5 minutes with maxAge
+// enable session and it should automatically expire if idle for 10 minutes with maxAge
 const sess = {
     secret: 'frodo',
-    cookie: {},
+    cookie: { maxAge: 600000 },
     resave: false,
-    saveUninitialized: true,
+    rolling: true,
+    saveUninitialized: false,
     store: new SequelizeStore({
         db: sequelize
     })

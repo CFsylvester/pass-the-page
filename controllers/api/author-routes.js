@@ -61,7 +61,6 @@ router.post('/', (req, res) => {
 
 // Login route
 router.post('/login', (req, res) => {
-    console.log(`====== Logged in as ${req.session.username}! ======`);
     Author.findOne({
         where: {
             username: req.body.username
@@ -80,8 +79,8 @@ router.post('/login', (req, res) => {
             }
 
             req.session.save(() => {
-                req.ssession.author_id = authorData.author_id;
-                req.sesssion.username = authorData.username;
+                req.session.author_id = authorData.author_id;
+                req.session.username = authorData.username;
                 req.session.loggedIn = true;
 
                 res.json({ user: authorData, message: `Logged in as ${authorData.username}.` });

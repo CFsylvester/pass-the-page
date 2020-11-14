@@ -45,11 +45,11 @@ router.post('/', (req, res) => {
     })
         .then(authorData => {
             req.session.save(() => {
-                console.log(req.session);
                 req.session.author_id = authorData.id;
                 req.session.username = authorData.username;
                 req.session.loggedIn = true;
 
+                console.log(authorData);
                 res.json(authorData);
             });
         })
@@ -68,7 +68,7 @@ router.post('/login', (req, res) => {
     })
         .then(authorData => {
             if (!authorData) {
-                res.status(404).json({ message: `${authorData.username} isn't an existing user.` });
+                res.status(400).json({ message: 'That is not an existing user.' });
                 return;
             }
 
@@ -76,10 +76,11 @@ router.post('/login', (req, res) => {
 
             if (!validPw) {
                 res.status(400).json({ message: "Wrong password!" });
+                return;
             }
 
             req.session.save(() => {
-                req.session.author_id = authorData.author_id;
+                req.session.author_id = authorData.id;
                 req.session.username = authorData.username;
                 req.session.loggedIn = true;
 
@@ -96,7 +97,7 @@ router.post('/login', (req, res) => {
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
-            console.log(`${req.session.username} logged out!`);
+            console.log('Logged out!');
             res.status(204).end();
         });
     } else {

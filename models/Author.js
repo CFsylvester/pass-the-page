@@ -41,11 +41,9 @@ Author.init(
         },
         title: {
             type: DataTypes.TEXT('tiny'),
-            allowNull: false
         },
         bio: {
             type: DataTypes.STRING(500),
-            allowNull: false
         }
     },
     {

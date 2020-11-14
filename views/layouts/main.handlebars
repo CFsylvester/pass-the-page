@@ -16,7 +16,23 @@
             <h1>
                 <a href="/">AltGather</a>
             </h1>
-            <nav></nav>
+            <nav class='navbar'>
+                {{#if loggedIn}}
+                <div>
+                    <a href="/dashboard"><button class='btn btn-primary'>Dashboard</button></a>
+                </div>
+                <div>
+                    <button id='logout-btn' class='btn btn-danger'>Logout</button>
+                </div>
+                {{else}}
+                <div>
+                    <a href="/signup"><button class='btn btn-success'>Create Account</button></a>
+                </div>
+                <div>
+                    <a href="/login"><button class='btn btn-primary'>Login</button></a>
+                </div>
+                {{/if}}
+            </nav>
         </header>
         <main>
             {{{ body }}}
@@ -26,6 +42,9 @@
         </footer>
     </div>
 
+    {{#if loggedIn}}
+    <script src='/javascript/logout.js'></script>
+    {{/if}}
 </body>
 
 </html>

@@ -1,12 +1,12 @@
-const username = document.querySelector('#login-username').value.trim();
-const password = document.querySelector('#login-password').value.trim();
-// const email = document.querySelector('#email-login').value.trim();
-
 // For now username and password will log in, 
 // but i'd like to try and add the option to use either username or email for login later
 
 async function loginUser(event) {
-    event.preventdefault();
+    event.preventDefault();
+
+    const username = document.querySelector('#login-name').value.trim();
+    const password = document.querySelector('#login-pw').value.trim();
+    // const email = document.querySelector('#email-login').value.trim();
 
     if (username && password) {
         const response = await fetch('/api/authors/login', {
@@ -16,7 +16,7 @@ async function loginUser(event) {
         });
 
         if (response.ok) {
-            console.log(`Logged in as ${username}!`);
+            document.location.replace('/dashboard');
         } else {
             console.log(response.statusText);
             alert(response.statusText);

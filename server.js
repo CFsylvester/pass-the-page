@@ -19,7 +19,7 @@ const sess = {
     secret: 'frodo',
     cookie: { maxAge: 600000 },
     resave: false,
-    rolling: true,
+    // rolling: true,
     saveUninitialized: false,
     store: new SequelizeStore({
         db: sequelize

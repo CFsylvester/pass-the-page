@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { Author } = require('../../models');
+const analyzeText = require('../../utils/natural');
+const userAuth = require('../../utils/userAuth');
 
 // Get all authors
 router.get('/', (req, res) => {

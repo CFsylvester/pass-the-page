@@ -1,5 +1,19 @@
-<div>
-    This is where you login in
-    or ya know
-    whatever
-</div>
+<section class='login-wrapper'>
+    <form id='login-form'>
+        <div class="form-row">
+            <div class="col">
+                <label for="login-name">Username:</label>
+                <input type="text" class='form-control' id="login-name" placeholder='Enter Your Username'>
+            </div>
+            <div class="col">
+                <label for="login-pw">Password:</label>
+                <input type="password" class="form-control" id="login-pw" placeholder='Enter Your Password'>
+            </div>
+        </div>
+        <div class='col'>
+            <button type='submit' class='btn btn-info'>Login</button>
+        </div>
+    </form>
+</section>
+
+<script src='/javascript/login.js'></script>

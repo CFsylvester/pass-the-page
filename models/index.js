@@ -1,6 +1,13 @@
-const User = require('./User');
+const Author = require('./Author');
 
 // Associations
-User.hasMany(Post, {
-    foreignKey: 'user_id'
-});
+
+// Author.hasMany(Story, {
+//     foreignKey: 'author_id'
+// });
+
+// Author.hasMany(Chapter, {
+//     foreignKey: 'author_id'
+// });
+
+module.exports = { Author };

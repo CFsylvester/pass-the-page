@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 const authorData = [
     {
-        username: 'the_silent_wolf',
+        username: 'nedstark',
         email: 'ned@winterfell.com',
         password: 'winteriscoming',
         title: 'Warden of the North',

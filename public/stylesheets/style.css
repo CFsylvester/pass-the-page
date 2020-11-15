@@ -1,0 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
+.signup-wrapper, .login-wrapper, .dashboard {
+    margin: 5% 5%;
+}

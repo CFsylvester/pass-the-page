@@ -2,10 +2,13 @@
     <div class="card">
         <div class="card-body">
             <ul class="list-group list-group-flush">
-                <li class='h2 card-title list-group-item'>{{user.username}} </li>
-                <li class='card-subtitle list-group-item'>{{user.email}}</li>
-                <li class='h4 card-title list-group-item'>{{user.title}}</li>
-                <li class="card-body list-group-item">{{user.bio}}</li>
+                <li class='h2 card-title list-group-item'>{{author.username}} </li>
+                <li class='card-subtitle list-group-item'>{{author.email}}</li>
+                <li class='h4 card-title list-group-item'>{{author.title}}</li>
+                <li class="card-body card-title list-group-item">{{author.bio}}</li>
+                <li class='card-subtitle list-group-item'><a href="/dashboard/edit-user/{{author.id}}">Update your
+                        info</a>
+                </li>
             </ul>
         </div>
     </div>

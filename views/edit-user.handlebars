@@ -1,0 +1,37 @@
+<section class='dashboard'>
+    <div class="card">
+        <div class="card-body">
+            <form id='user-edit-form'>
+                <ul class="list-group list-group-flush">
+                    <li class='list-group-item'>
+                        <div class="form-group">
+                            <label for="username-edit" class='h4 card-title'>Username:</label>
+                            <input type="text" class="form-control" id='username-edit' value='{{author.username}}'>
+                        </div>
+                    </li>
+                    <li class='list-group-item'>
+                        <div class="form-group">
+                            <label for="title-edit" class='h4 card-title'>Title:</label>
+                            <input type="text" class="form-control" id='title-edit' value="{{author.title}}">
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label for="bio-edit" class='h4 card-title'>Biography:</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea type='textarea' name="bio-edit" id="bio-edit" cols="40"
+                                rows="4">{{author.bio}}</textarea>
+                        </div>
+                    </li>
+                    <li class='list-group-item'>
+                        <div class="form-group">
+                            <label for="email-edit" class='h4 card-title'>Email:</label>
+                            <input type="email" class="form-control" id='email-edit' value='{{author.email}}'>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Author } = require('../models');
+const userAuth = require('../utils/userAuth');
 
+// Render the dashboard of the current logged in user and display their info
 router.get('/', (req, res) => {
     console.log('========= Dashboard Rendered =========');
 
@@ -9,16 +11,38 @@ router.get('/', (req, res) => {
             username: req.session.username
         }
     })
-        .then(userData => {
-            if (userData) {
-                const user = userData.get({ plain: true });
+        .then(authorData => {
+            if (authorData) {
+                const author = authorData.get({ plain: true });
 
                 res.render('dashboard', {
-                    user,
+                    author,
                     loggedIn: req.session.loggedIn
                 });
             } else {
-                res.status(404).end();
+                res.status(404).json({ message: "We couldn't find your info." });
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+// Render a page for the user to update their info
+router.get('/edit-user/:id', (req, res) => {
+    Author.findOne({
+        where: {
+            id: req.session.author_id
+        },
+        attributes: ['username', 'email', 'title', 'bio']
+    })
+        .then(authorData => {
+            if (authorData) {
+                const author = authorData.get({ plain: true });
+                res.render('edit-user', { author, loggedIn: req.session.loggedIn });
+            } else {
+                res.status(404).json({ message: "We couldn't find your info." });
             }
         })
         .catch(err => {

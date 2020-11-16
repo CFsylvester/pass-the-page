@@ -1,7 +1,33 @@
 * {
     box-sizing: border-box;
+    font-family: 'Goudy Bookletter 1911', serif;
+}
+
+main {
+    height: 70vh;
+}
+
+a:link {
+    text-decoration: none;
 }
 
 .signup-wrapper, .login-wrapper, .dashboard {
-    margin: 5% 5%;
+    margin: 5% 30%;
+    border: 0.25px lightgray solid;
+    border-radius: 5px;
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+.button {
+    width: 50%;
+}
+
+.button-wrap {
+    text-align: center;
+    margin-top: 15px;
 }

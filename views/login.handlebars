@@ -1,19 +1,26 @@
 <section class='login-wrapper'>
-    <form id='login-form'>
-        <div class="form-row">
-            <div class="col">
-                <label for="login-name">Username:</label>
-                <input type="text" class='form-control' id="login-name" placeholder='Enter Your Username'>
+    <div class="form-wrapper">
+        <form id='login-form'>
+            <div class="form-group">
+                <div class="col">
+                    <label for="login-name">Username:</label>
+                    <input type="text" class='form-control input' id="login-name" placeholder='Enter Your Username'>
+                </div>
             </div>
-            <div class="col">
-                <label for="login-pw">Password:</label>
-                <input type="password" class="form-control" id="login-pw" placeholder='Enter Your Password'>
+            <div class="form-group">
+                <div class="col">
+                    <label for="login-pw">Password:</label>
+                    <input type="password" class="form-control input" id="login-pw" placeholder='Enter Your Password'>
+                </div>
             </div>
-        </div>
-        <div class='col'>
-            <button type='submit' class='btn btn-info'>Login</button>
-        </div>
-    </form>
+            <div class='button-wrap'>
+                <button type='submit' class='btn btn-info button'>Login</button>
+            </div>
+            <div class='button-wrap'>
+                <span>Not signed up? <a href='/signup'>Join now!</a></span>
+            </div>
+        </form>
+    </div>
 </section>
 
 <script src='/javascript/login.js'></script>

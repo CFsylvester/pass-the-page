@@ -1,21 +1,37 @@
 <section class='signup-wrapper'>
-    <form id='signup-form'>
-        <div class="form-group">
-            <label for="signup-name">Username:</label>
-            <input type="text" class='form-control' id="signup-name" placeholder='Enter Your Username'>
-        </div>
-        <div class="form-group">
-            <label for="signup-email">Email:</label>
-            <input type="email" class="form-control" id="signup-email" placeholder='Enter Your Email Address'>
-        </div>
-        <div class="form-group">
-            <label for="signup-pw">Password:</label>
-            <input type="password" class="form-control" id="signup-pw" placeholder='Enter Your Password'>
-        </div>
-        <div class='button'>
-            <button type='submit' class='btn btn-success'>Submit!</button>
-        </div>
-    </form>
+    <div class="form-wrapper">
+        <form id='signup-form'>
+            <div class="form-group">
+                <div class="col">
+                    <label for="signup-name">Username:</label>
+                    <input type="text" class='form-control' id="signup-name" placeholder='your username'>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col">
+                    <label for="signup-email">Email:</label>
+                    <input type="email" class="form-control" id="signup-email" placeholder='your email'>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col">
+                    <label for="signup-pw">Password:</label>
+                    <input type="password" class="form-control" id="signup-pw" placeholder='your password'>
+                </div>
+            </div>
+            <div class='button-wrap'>
+                <div class="col">
+
+                    <button type='submit' class='button btn btn-info'>Submit!</button>
+                </div>
+            </div>
+            <div class='button-wrap'>
+                <div class="col">
+                    <span>Already an author? <a href='/login'>Log in!</a></span>
+                </div>
+            </div>
+        </form>
+    </div>
 </section>
 
 <script src='/javascript/signup.js'></script>

@@ -6,7 +6,7 @@ const userAuth = require('../../utils/userAuth');
 // Get all authors
 router.get('/', (req, res) => {
     Author.findAll({
-        // attributes: { exclude: ['password'] }
+        attributes: { exclude: ['password'] }
     })
         .then(authorData => res.json(authorData))
         .catch(err => {

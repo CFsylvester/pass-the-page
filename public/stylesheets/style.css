@@ -31,3 +31,13 @@ a:link {
     text-align: center;
     margin-top: 15px;
 }
+
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+    height: 6vh;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin: 0 2%;
+}

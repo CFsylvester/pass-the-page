@@ -13,4 +13,6 @@ const analyzeText = (str) => {
     return analyzer.getSentiment(splitText);
 };
 
+// console.log('natural result:', analyzeText(love));
+
 module.exports = analyzeText;

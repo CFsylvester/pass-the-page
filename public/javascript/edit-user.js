@@ -2,7 +2,7 @@ async function editUser(event) {
     event.preventDefault();
 
     const username = document.querySelector('#username-edit').value.trim();
-    const password = document.querySelector('#pw-edit').value.trim();
+    // const password = document.querySelector('#pw-edit').value.trim();
     const email = document.querySelector('#email-edit').value.trim();
     const title = document.querySelector('#title-edit').value.trim();
     const bio = document.querySelector('#bio-edit').value.trim();
@@ -10,10 +10,10 @@ async function editUser(event) {
         window.location.toString().split('/').length - 1
     ];
 
-    const response = await fetch(`/api/author/${id}`, {
+    const response = await fetch(`/api/authors/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
-            username, password, email, title, bio
+            username, email, title, bio
         }),
         headers: { 'Content-Type': 'application/json' }
     });
@@ -26,4 +26,4 @@ async function editUser(event) {
     }
 }
 
-document.querySelector('#user-edit-format').addEventListener('sumbit', editUser);
+document.querySelector('#user-edit-form').addEventListener('submit', editUser);

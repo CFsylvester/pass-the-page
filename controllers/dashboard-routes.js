@@ -3,7 +3,7 @@ const { Author } = require('../models');
 const userAuth = require('../utils/userAuth');
 
 // Render the dashboard of the current logged in user and display their info
-router.get('/', (req, res) => {
+router.get('/', userAuth, (req, res) => {
     console.log('========= Dashboard Rendered =========');
 
     Author.findOne({
@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
 });
 
 // Render a page for the user to update their info
-router.get('/edit-user/:id', (req, res) => {
+router.get('/edit-user/:id', userAuth, (req, res) => {
     Author.findOne({
         where: {
             id: req.session.author_id

@@ -18,10 +18,8 @@
                     <li class="list-group-item">
                         <div class="form-group">
                             <label for="bio-edit" class='h4 card-title'>Biography:</label>
-                        </div>
-                        <div class="form-group">
-                            <textarea type='textarea' name="bio-edit" id="bio-edit" cols="40"
-                                rows="4">{{author.bio}}</textarea>
+                            <textarea type='textarea' name="bio-edit" id="bio-edit"
+                                class='bio-input'>{{author.bio}}</textarea>
                         </div>
                     </li>
                     <li class='list-group-item'>
@@ -30,8 +28,17 @@
                             <input type="email" class="form-control" id='email-edit' value='{{author.email}}'>
                         </div>
                     </li>
+                    <li class="list-group-item">
+                        <div class='button-wrap'>
+                            <div class="col">
+                                <button type='submit' class='button btn btn-info'>Submit!</button>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </form>
         </div>
     </div>
 </section>
+
+<script src="/javascript/edit-user.js"></script>

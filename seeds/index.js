@@ -11,13 +11,13 @@ const seedAll = async () => {
     await seedAuthors();
     console.log('Authors seeded');
 
-    await seedChapters();
-    console.log('Chapters seeded');
-
     await seedStories();
     console.log('Stories seeded');
 
-    process.exit(0); 
+    await seedChapters();
+    console.log('Chapters seeded');
+
+    process.exit(0);
 };
 
 seedAll(); 

@@ -1,5 +1,6 @@
 const seedChapters = require('./chapter-seeds');
-const seedAuthors = require('./author-seeds'); 
+const seedAuthors = require('./author-seeds');
+const seedStories = require('./story-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -12,6 +13,9 @@ const seedAll = async () => {
 
     await seedChapters();
     console.log('Chapters seeded');
+
+    await seedStories();
+    console.log('Stories seeded');
 
     process.exit(0); 
 };

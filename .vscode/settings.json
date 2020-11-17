@@ -3,6 +3,7 @@
         "altgather",
         "altgather db",
         "db",
+        "preconnect",
         "xfbml"
     ]
 }

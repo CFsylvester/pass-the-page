@@ -1,11 +1,12 @@
 const Author = require('./Author');
 const Chapter = require('./Chapter');
+const Story = require('./Story');
 
 // Associations
 
-// Author.hasMany(Story, {
-//     foreignKey: 'author_id'
-// });
+Author.hasMany(Story, {
+    foreignKey: 'author_id'
+});
 
 Author.hasMany(Chapter, {
     foreignKey: 'author_id'
@@ -15,8 +16,13 @@ Chapter.belongsTo(Author, {
     foreignKey: 'author_id'
 });
 
-// Chapter.belongsTo(Store, {
-//     foreignKey: 'story_id'
-// });
+Chapter.belongsTo(Story, {
+    foreignKey: 'story_id'
+});
 
-module.exports = { Author, Chapter };
+//Newly Added
+Story.belongsTo(Author, {
+    foreignKey: 'author_id'
+});
+
+module.exports = { Author, Chapter, Story };

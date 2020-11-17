@@ -6,6 +6,18 @@ header {
     background-color: rgb(241, 195, 117);
 }
 
+.nav-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.login-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .all, .inspo {
     color: #bf9650;
     font-size: 25px;

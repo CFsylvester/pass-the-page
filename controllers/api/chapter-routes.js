@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
     Chapter.create({
       chapter_text: req.body.chapter_text,
       author_id: req.body.author_id,
-      //story_id: req.body.story_id
+      story_id: req.body.story_id
     })
       .then(dbChapterData => res.json(dbChapterData))
       .catch(err => {

@@ -8,11 +8,11 @@ const tokenizer = new natural.WordTokenizer();
 
 const analyzeText = (str) => {
     const splitText = tokenizer.tokenize(str);
-    console.log(analyzer.getSentiment(splitText));
 
     return analyzer.getSentiment(splitText);
 };
-console.log('hatred:', analyzeText('i love sentiment analysis! i love sentiment analysis! i love sentiment analysis! i love sentiment analysis!'));
-console.log('positive:', analyzeText('i like coding a lot.'));
+
+// console.log('hatred:', analyzeText('i love sentiment analysis! i love sentiment analysis! i love sentiment analysis! i love sentiment analysis!'));
+// console.log('positive:', analyzeText('i like coding a lot.'));
 
 module.exports = analyzeText;

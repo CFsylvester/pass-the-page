@@ -12,7 +12,7 @@ header {
 .nav-wrap {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .login-wrap {
@@ -53,6 +53,10 @@ h1 {
 
 .dashboard {
     color: #bf0808;
+}
+
+a:link {
+    text-decoration: none;
 }
 
 ul {
@@ -96,10 +100,6 @@ footer {
 
 /* main {
     height: 70vh;
-}
-
-a:link {
-    text-decoration: none;
 }
 
 .signup-wrapper, .login-wrapper, .dashboard {

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Author } = require('../models');
+const { Author, Story, Chapter } = require('../models');
 const userAuth = require('../utils/userAuth');
 
 // Render the dashboard of the current logged in user and display their info
@@ -14,6 +14,7 @@ router.get('/', userAuth, (req, res) => {
         .then(authorData => {
             if (authorData) {
                 const author = authorData.get({ plain: true });
+                console.log('line 7:', author);
 
                 res.render('dashboard', {
                     author,
@@ -46,6 +47,44 @@ router.get('/edit-user/:id', userAuth, (req, res) => {
             }
         })
         .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+// THIS ROUTE NOT WORKING
+// Get the logged in user's stories to display on their dashboard
+router.get('/', userAuth, (req, res) => {
+    console.log('line 56:', req.session);
+
+    Story.findAll({
+        where: {
+            author_id: req.session.author_id
+        },
+        order: [['created_at', 'DESC']],
+        include: [
+            {
+                model: Author,
+                attributes: ['id', 'username', 'title', 'bio', 'email']
+            },
+            {
+                model: Chapter,
+                attributes: ['chapter_text'],
+                // include: [
+                //     {
+                //         model: Author,
+                //         attributes: ['username']
+                //     }
+                // ]
+            }
+        ]
+    })
+        .then(storyData => {
+            const stories = storyData.map(story => story.get({ plain: true }));
+            console.log('\n line 83 storyData', stories);
+            res.render('dashboard', { stories, loggedIn: true });
+        }).
+        catch(err => {
             console.log(err);
             res.status(500).json(err);
         });

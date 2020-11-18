@@ -12,7 +12,7 @@ const analyzeText = (str) => {
 
     return analyzer.getSentiment(splitText);
 };
-
-// console.log('natural result:', analyzeText(love));
+console.log('hatred:', analyzeText('i love sentiment analysis! i love sentiment analysis! i love sentiment analysis! i love sentiment analysis!'));
+console.log('positive:', analyzeText('i like coding a lot.'));
 
 module.exports = analyzeText;

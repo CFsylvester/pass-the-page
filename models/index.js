@@ -20,6 +20,10 @@ Chapter.belongsTo(Story, {
     foreignKey: 'story_id'
 });
 
+Story.hasMany(Chapter, {
+    foreignKey: 'story_id'
+});
+
 //Newly Added
 Story.belongsTo(Author, {
     foreignKey: 'author_id'

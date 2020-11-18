@@ -2,43 +2,51 @@
     <div class="all col-sm border-dark border-right text-center">
         <h1>ALL STORIES</h1>
         <div class="row">
+            {{#each closedStories}}
             <div class="card mx-auto my-auto text-left">
                 <img class="card-img-top" src="/src/book.png" alt="Story Image">
                 <div class="card-body">
-                    <h6 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn">Read More</a>
+                    <h6 class="card-title">{{story_title}}</h5>
+                        <p class="card-text">{{story_text}}</p>
+                        <a href="#" class="btn">Read More</a>
+
                 </div>
             </div>
             <div class="card mx-auto my-auto text-left">
                 <img class="card-img-top" src="/src/book.png" alt="Story Image">
                 <div class="card-body">
                     <h6 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn">Read More</a>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn">Read More</a>
                 </div>
             </div>
+            {{/each}}
         </div>
     </div>
+
     <div class="open col-sm border-dark border-right text-center">
         <h1>OPEN STORIES</h1>
         <div class="row">
+            {{#each openStories}}
             <div class="card mx-auto my-auto text-left">
                 <img class="card-img-top" src="/src/book.png" alt="Story Image">
                 <div class="card-body">
-                    <h6 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn">Contribute Here</a>
+                    <h6 class="card-title">{{story_title}}</h5>
+                        <p class="card-text">{{story_text}}</p>
+                        <a href="#" class="btn">Contribute Here</a>
                 </div>
             </div>
             <div class="card mx-auto my-auto text-left">
                 <img class="card-img-top" src="/src/book.png" alt="Story Image">
                 <div class="card-body">
                     <h6 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn">Contribute Here</a>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn">Contribute Here</a>
                 </div>
             </div>
+            {{/each}}
         </div>
     </div>
 </div>

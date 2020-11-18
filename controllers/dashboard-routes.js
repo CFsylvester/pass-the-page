@@ -1,27 +1,58 @@
 const router = require('express').Router();
-const { Author } = require('../models');
+const { Author, Story, Chapter } = require('../models');
 const userAuth = require('../utils/userAuth');
 
 // Render the dashboard of the current logged in user and display their info
 router.get('/', userAuth, (req, res) => {
     console.log('========= Dashboard Rendered =========');
 
-    Author.findOne({
+    // Author.findOne({
+    //     where: {
+    //         username: req.session.username
+    //     },
+    //     include: [
+    //         {
+    //             model: Story, 
+    //             attributes: ['id', 'completed', 'story_title', 'story_text', 'author_id'],
+    //             include: {
+    //                 model: Chapter,
+    //             }
+    //         }
+    //     ]
+    // })
+    Story.findAll({
         where: {
-            username: req.session.username
-        }
-    })
-        .then(authorData => {
-            if (authorData) {
-                const author = authorData.get({ plain: true });
-
-                res.render('dashboard', {
-                    author,
-                    loggedIn: req.session.loggedIn
-                });
-            } else {
-                res.status(404).json({ message: "We couldn't find your info." });
+            // use the ID from the session
+            author_id: req.session.author_id
+        },
+        attributes: [
+            'id', 
+            'completed', 
+            'story_title', 
+            'story_text', 
+            'author_id'
+        ],
+        include: [
+            // {
+            //     model: Chapter,
+            //     attributes: ['id', 'chapter_text', 'author_id', 'story_id', 'created_at'],
+            //     include: {
+            //         model: Author,
+            //         attributes: ['username']
+            //     }
+              
+            // }, 
+            {
+              model: Author,
+              attributes: ['id', 'username', 'email', 'title', 'bio']
             }
+        ]
+    })
+        .then(storyData => {
+                // const author = authorData.get({ plain: true });
+                // const author = authorData.map(data=> data.get({ plain: true }));
+            const stories = storyData.map(story => story.get({ plain: true }));
+            res.render('dashboard', { stories, loggedIn: req.session.loggedIn });
         })
         .catch(err => {
             console.log(err);

@@ -1,0 +1,17 @@
+<div class="col profile rounded mr-5 py-3">
+    <div class="row">
+        {{#each this}}
+        <div class="col">
+            <h2>{{author.username}} </h2>
+            <p>{{author.email}}</p>
+            <p class="border-dark border-bottom">
+                <a href="/dashboard/edit-user/{{author.id}}"> 
+                    Update your info
+                </a>
+            </p>
+        </div>
+    </div>
+    <h4 class="text-center">{{author.title}}</h4>
+    <p>{{author.bio}}</p>
+    {{/each}}
+</div>

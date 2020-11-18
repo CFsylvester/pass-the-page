@@ -10,40 +10,13 @@
         </div>
     </div>
     <div class="row mt-4">
-        <div class="col profile rounded mr-5 py-3">
-            <div class="row">
-                <div class="col">
-                    <h2>{{author.username}} </h2>
-                    <p>{{author.email}}</p>
-                    <p class="border-dark border-bottom">
-                        <a href="/dashboard/edit-user/{{author.id}}"> 
-                            Update your info
-                        </a>
-                    </p>
-                </div>
-            </div>
-            <h4 class="text-center">{{author.title}}</h4>
-            <p>{{author.bio}}</p>
-        </div>
+       {{> profile-card stories}}
         <div class="col-6 border-dark border-left text-center">
             <h1> YOUR STORIES </h1>
             <div class="row">
-                <div class="card mx-auto my-auto text-left">
-                    <img class="card-img-top" src="/src/book.png" alt="Story Image">
-                    <div class="card-body">
-                        <h6 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn">Edit Story</a>
-                    </div>
-                </div>
-                <div class="card mx-auto my-auto text-left">
-                    <img class="card-img-top" src="/src/book.png" alt="Story Image">
-                    <div class="card-body">
-                        <h6 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn">Edit Story</a>
-                    </div>
-                </div>
+                {{#each stories}}
+                    {{>story-card}}
+                {{/each}}
             </div>
         </div>
     </div>

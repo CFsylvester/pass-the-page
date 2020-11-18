@@ -1,63 +1,63 @@
 const router = require('express').Router();
-const { Author, Story, Chapter } = require('../models');
+const { Story, Author, Chapter } = require('../models');
 const userAuth = require('../utils/userAuth');
 
 // Render the dashboard of the current logged in user and display their info
 router.get('/', userAuth, (req, res) => {
     console.log('========= Dashboard Rendered =========');
-
-    // Author.findOne({
+    
+    // Story.findAll({
     //     where: {
-    //         username: req.session.username
+    //         // use the ID from the session
+    //         author_id: req.session.author_id
     //     },
+    //     attributes: [
+    //         'id', 
+    //         'completed', 
+    //         'story_title', 
+    //         'story_text', 
+    //         'author_id'
+    //     ],
     //     include: [
+    //         // {
+    //         //     model: Chapter,
+    //         //     attributes: ['id', 'chapter_text', 'author_id', 'story_id', 'created_at'],
+    //         //     include: {
+    //         //         model: Author,
+    //         //         attributes: ['username']
+    //         //     }
+              
+    //         // }, 
     //         {
-    //             model: Story, 
-    //             attributes: ['id', 'completed', 'story_title', 'story_text', 'author_id'],
-    //             include: {
-    //                 model: Chapter,
-    //             }
+    //           model: Author,
+    //           attributes: ['id', 'username', 'email', 'title', 'bio']
     //         }
     //     ]
     // })
-    Story.findAll({
+    Author.findOne({
         where: {
-            // use the ID from the session
-            author_id: req.session.author_id
+            username: req.session.username
         },
-        attributes: [
-            'id', 
-            'completed', 
-            'story_title', 
-            'story_text', 
-            'author_id'
-        ],
         include: [
-            // {
-            //     model: Chapter,
-            //     attributes: ['id', 'chapter_text', 'author_id', 'story_id', 'created_at'],
-            //     include: {
-            //         model: Author,
-            //         attributes: ['username']
-            //     }
-              
-            // }, 
             {
-              model: Author,
-              attributes: ['id', 'username', 'email', 'title', 'bio']
+                model: Story, 
+                attributes: ['id', 'completed', 'story_title', 'story_text', 'author_id'],
+                include: {
+                    model: Chapter,
+                }
             }
         ]
     })
-        .then(storyData => {
-                // const author = authorData.get({ plain: true });
-                // const author = authorData.map(data=> data.get({ plain: true }));
-            const stories = storyData.map(story => story.get({ plain: true }));
-            res.render('dashboard', { stories, loggedIn: req.session.loggedIn });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    .then(authorData => {
+        const author = authorData.get({ plain: true });
+            // const author = authorData.map(data=> data.get({ plain: true }));
+            // const stories = storyData.map(story => story.get({ plain: true }));
+        res.render('dashboard', { author, loggedIn: req.session.loggedIn });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
 });
 
 // Render a page for the user to update their info

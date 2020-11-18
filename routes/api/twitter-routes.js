@@ -1,16 +1,16 @@
 require('dotenv').config()
 
-//Pulls tweet info by ID so the data can be parsed
+//Pulls Twitter trending topics
 const tweetRequest = require('request');
 
-//Authorization key - need to use dotenv to hide this!
+//Authorization key - Utilize dotenv 
 const headers = {
     'Authorization': process.env.TW_BEARER_TOKEN
 };
 
-//Tweet ID info
+//API Endpoint URL
 const options = {
-    url: 'https://api.twitter.com/2/tweets/1021840124064059392',
+    url: 'https://api.twitter.com/1.1/trends/place.json?id=1',
     headers: headers
 };
 
@@ -23,3 +23,5 @@ function callback(error, response, body) {
 
 //Calling the function back for tweet info
 tweetRequest(options, callback);
+
+module.exports = tweetRequest;

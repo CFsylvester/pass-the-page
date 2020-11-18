@@ -31,6 +31,10 @@ Story.init(
                 model: 'author',
                 key: 'id'
             }
+        },
+        completed: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true
         }
     },
     {

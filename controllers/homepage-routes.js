@@ -1,9 +1,37 @@
 const router = require('express').Router();
+const { Author, Chapter } = require('../models');
+const Stories = require('../models');
+const userAuth = require('../utils/userAuth');
 
+// Route to get completed stories
 router.get('/', (req, res) => {
     console.log('========= Homepage rendered =========');
-
-    res.render('homepage', { loggedIn: req.session.loggedIn });
+    Stories.findAll({
+        include: [
+            {
+                model: Author,
+                attributes: ['username', 'title', 'createdAt']
+            },
+            {
+                model: Chapter,
+                attributes: ['chapter_text'],
+                include: [
+                    {
+                        model: Author,
+                        attributes: ['username']
+                    }
+                ]
+            }
+        ]
+    })
+        .then(storyData => {
+            const stories = storyData.map(story => story.get({ plain: true }));
+            res.render('homepage', { stories, loggedIn: req.session.loggedIn });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // User login

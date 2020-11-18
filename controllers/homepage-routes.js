@@ -1,71 +1,82 @@
 const router = require('express').Router();
+// const sequelize = require('../config/connection');
 const { Story, Author, Chapter } = require('../models');
-const userAuth = require('../utils/userAuth');
-const analyzeText = require('../utils/natural');
+// const userAuth = require('../utils/userAuth');
+// const analyzeText = require('../utils/natural');
 
 // Route to get completed stories
-router.get('/', (req, res) => {
-    console.log('========= Homepage rendered =========');
-    Story.findAll({
-        where: {
-            completed: false
-        },
-        order: [['createdAt', 'DESC']],
-        include: [
-            {
-                model: Author,
-                attributes: ['username', 'title', 'createdAt']
-            },
-            {
-                model: Chapter,
-                attributes: ['chapter_text'],
-                include: [
-                    {
-                        model: Author,
-                        attributes: ['username']
-                    }
-                ]
-            }
-        ]
-    })
-        .then(storyData => {
-            const closedStories = storyData.map(story => story.get({ plain: true }));
-            res.render('homepage', { closedStories, analyzeText, loggedIn: req.session.loggedIn });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
+// router.get('/', (req, res) => {
+//     console.log('========= Homepage rendered =========');
+//     Story.findAll({
+//         // where: {
+//         //     completed: false
+//         // },
+//         // order: [['createdAt', 'DESC']],
+//         include: [
+//             {
+//                 model: Author,
+//                 attributes: ['username', 'title', 'createdAt']
+//             },
+//             {
+//                 model: Chapter,
+//                 attributes: ['chapter_text'],
+//                 include: [
+//                     {
+//                         model: Author,
+//                         attributes: ['username']
+//                     }
+//                 ]
+//             }
+//         ]
+//     })
+//         .then(storyData => {
+//             const closedStories = storyData.map(story => story.get({ plain: true }));
+//             res.render('homepage', { closedStories, analyzeText, loggedIn: req.session.loggedIn });
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             res.status(500).json(err);
+//         });
+// });
 
 // Route to get open stories for other users to contribute to
 router.get('/', (req, res) => {
     console.log('========= Homepage rendered =========');
     Story.findAll({
-        where: {
-            completed: true
-        },
-        order: [['createdAt', 'DESC']],
+        // where: {
+        //     completed: false
+        // },
+        // order: [['createdAt', 'DESC']],
+        attributes: [
+            'id',
+            'completed',
+            'story_title',
+            'story_text',
+            'author_id',
+            'created_at',
+        ],
         include: [
             {
                 model: Author,
-                attributes: ['username', 'title', 'createdAt']
+                attributes: ['id', 'username', 'title', 'createdAt']
             },
             {
                 model: Chapter,
                 attributes: ['chapter_text'],
-                include: [
-                    {
-                        model: Author,
-                        attributes: ['username']
-                    }
-                ]
+                include: {
+                    model: Author,
+                    attributes: ['username']
+                }
             }
         ]
     })
         .then(storyData => {
-            const openStories = storyData.map(story => story.get({ plain: true }));
-            res.render('homepage', { openStories, analyzeText, loggedIn: req.session.loggedIn });
+            const stories = storyData.map(story => story.get({ plain: true }));
+            res.render('homepage', { 
+                stories, 
+                // analyzeText, 
+                loggedIn: req.session.loggedIn 
+            });
         })
         .catch(err => {
             console.log(err);

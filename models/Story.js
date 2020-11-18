@@ -11,6 +11,10 @@ Story.init(
             primaryKey: true,
             autoIncrement: true
         },
+        completed: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true
+        },
         story_title: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -31,10 +35,6 @@ Story.init(
                 model: 'author',
                 key: 'id'
             }
-        },
-        completed: {
-            type: DataTypes.BOOLEAN,
-            allowNull: true
         }
     },
     {

@@ -19,9 +19,9 @@
                 <div>
                     {{!-- empty --}}
                 </div>
-                <div class="">
+                <div>
                     <a href="/">
-                        <img src='/src/logo.png' width="400" height="100" alt="" loading="lazy">
+                        <img src='/src/logo.png' width="400" height="150" alt="" loading="lazy">
                     </a>
                 </div>
                 {{#if loggedIn}}
@@ -49,14 +49,29 @@
     <main>
         {{{ body }}}
     </main>
-    <footer class='footer'>
-        <div>
-            <p>Thanks for visiting!</p>
+    <footer>
+        <div class="row py-1 ml-1">
+            <div>
+                <a href="/">
+                    <img src='/src/logo.png' width="160" height="100" alt="" loading="lazy">
+                </a>
+            </div>
+            <div>
+               <p class="text-uppercase">
+                   Developed By: 
+                    <a href="https://www.w3schools.com" target="_blank">
+                        Claire Sylvester,
+                    </a>
+                    <a href="https://www.w3schools.com" target="_blank">
+                        Curtis Henderson,
+                    </a>
+                    <a href="https://www.w3schools.com" target="_blank">
+                        & Tom Chestnut
+                    </a>
+                </p>
+            </div>
         </div>
-        <div>
-            <p>Created by: Claire Sylvester, Curtis Henderson & Tom Chestnut</p>
-        </div>
-    </footer>
+  </footer>
 
     {{#if loggedIn}}
     <script src='/javascript/logout.js'></script>

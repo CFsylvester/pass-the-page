@@ -1,4 +1,7 @@
-* {
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
     font-family: 'Goudy Bookletter 1911', serif;
 }
 
@@ -18,14 +21,16 @@ header {
     align-items: center;
 }
 
+h1 {
+    font-size: 25px;
+}
+
 .all, .inspo {
     color: #bf9650;
-    font-size: 25px;
 }
 
 .open {
     color: #790404;
-    font-size: 25px;
 }
 
 .card {
@@ -46,6 +51,10 @@ header {
     color: #8b6c38;
 }
 
+.dashboard {
+    color: #bf0808;
+}
+
 ul {
     list-style:none; 
     margin: 0; 
@@ -62,8 +71,20 @@ li:before {
     
 }
 
-/*
-main {
+.profile {
+    color: #bf9650;
+    background-color: #790404;
+}
+
+footer {
+    background-color: rgb(241, 195, 117);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 7rem;            /* Footer height */
+} 
+
+/* main {
     height: 70vh;
 }
 
@@ -97,16 +118,14 @@ a:link {
     margin-top: 15px;
 }
 
-.footer {
-    background-color: white;
+
+footer {
+    background-color: #bf9650;
     display: flex;
     justify-content: space-evenly;
     height: 6vh;
     width: 100%;
     position: fixed;
     bottom: 0;
-    padding-top: 25spx; */
-    /* padding-bottom: 50px;
-    border-top: 0.25px solid lightgray;
-} */ 
-
+    padding-top: 25spx; 
+} */

@@ -76,6 +76,16 @@ li:before {
     background-color: #790404;
 }
 
+textarea {
+    width: 100%;
+    height: 200px;
+}
+
+.new-story{
+    color: #790404;
+    font-size: 50px;
+}
+
 footer {
     background-color: rgb(241, 195, 117);
     position: fixed;

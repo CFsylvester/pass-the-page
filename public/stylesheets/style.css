@@ -92,23 +92,31 @@ textarea {
     font-size: 50px;
 }
 
+main {
+    padding-bottom: 14rem;
+}
+
 footer {
     background-color: rgb(241, 195, 117);
     bottom: 0;
     position: fixed;
-    width: 100%;
     height: 7rem;   /*         Footer height */
+    width: 100%;
 } 
 
 .footer{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
 }
 
-/* main {
-    height: 70vh;
+.devs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/*
 .signup-wrapper, .login-wrapper, .dashboard {
     margin: 5% 30%;
     border: 0.25px lightgray solid;

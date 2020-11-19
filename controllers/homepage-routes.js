@@ -37,10 +37,10 @@ router.get('/', (req, res) => {
     })
         .then(storyData => {
             const stories = storyData.map(story => story.get({ plain: true }));
-            res.render('homepage', { 
-                stories, 
+            res.render('homepage', {
+                stories,
                 // analyzeText, 
-                loggedIn: req.session.loggedIn 
+                loggedIn: req.session.loggedIn
             });
         })
         .catch(err => {
@@ -76,20 +76,20 @@ router.get('/add-chapter/:id', userAuth, (req, res) => {
             }
         ]
     })
-    .then(storyData => {
-        if (storyData) {
-            const story = storyData.get({ plain: true });
-            console.log(story)
-            res.render('add-chapter', { story, loggedIn: req.session.loggedIn });
-        } else {
-            res.status(404).json({ message: "We couldn't find the story you requested." });
-        }
-        
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(storyData => {
+            if (storyData) {
+                const story = storyData.get({ plain: true });
+                console.log(story);
+                res.render('add-chapter', { story, loggedIn: req.session.loggedIn });
+            } else {
+                res.status(404).json({ message: "We couldn't find the story you requested." });
+            }
+
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // User login

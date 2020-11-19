@@ -60,10 +60,6 @@ router.get('/', userAuth, (req, res) => {
         });
 });
 
-
-
-
-
 // Render a page for the user to update their info
 router.get('/edit-user/:id', userAuth, (req, res) => {
     Author.findOne({
@@ -81,44 +77,6 @@ router.get('/edit-user/:id', userAuth, (req, res) => {
             }
         })
         .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
-
-// THIS ROUTE NOT WORKING
-// Get the logged in user's stories to display on their dashboard
-router.get('/', userAuth, (req, res) => {
-    console.log('line 56:', req.session);
-
-    Story.findAll({
-        where: {
-            author_id: req.session.author_id
-        },
-        order: [['created_at', 'DESC']],
-        include: [
-            {
-                model: Author,
-                attributes: ['id', 'username', 'title', 'bio', 'email']
-            },
-            {
-                model: Chapter,
-                attributes: ['chapter_text'],
-                // include: [
-                //     {
-                //         model: Author,
-                //         attributes: ['username']
-                //     }
-                // ]
-            }
-        ]
-    })
-        .then(storyData => {
-            const stories = storyData.map(story => story.get({ plain: true }));
-            console.log('\n line 83 storyData', stories);
-            res.render('dashboard', { stories, loggedIn: true });
-        }).
-        catch(err => {
             console.log(err);
             res.status(500).json(err);
         });

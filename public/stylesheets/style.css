@@ -53,6 +53,13 @@ h1 {
     color: #8b6c38;
 }
 
+.chapter {
+    background-color: rgb(197, 192, 192);
+    border-color: #790404;
+    border-radius: 1px;
+    border-style: solid;
+}
+
 .dashboard {
     color: #bf0808;
 }
@@ -100,7 +107,7 @@ footer {
     background-color: rgb(241, 195, 117);
     bottom: 0;
     position: fixed;
-    height: 7rem;   /*         Footer height */
+    height: 7rem;   /* Footer height */
     width: 100%;
 } 
 
@@ -142,15 +149,4 @@ footer {
     text-align: center;
     margin-top: 15px;
 }
-
-
-footer {
-    background-color: #bf9650;
-    display: flex;
-    justify-content: space-evenly;
-    height: 6vh;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    padding-top: 25spx; 
 } */

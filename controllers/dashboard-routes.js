@@ -80,4 +80,8 @@ router.get('/edit-user/:id', userAuth, (req, res) => {
         });
 });
 
+router.get('/new-story', (req, res) => {
+    res.render('new-story', { loggedIn: req.session.loggedIn });
+});
+
 module.exports = router;

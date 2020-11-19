@@ -6,30 +6,18 @@
             </h1>
         </div>
         <div>
-            <a href="/new-story"><button type="button" class="btn btn-block">START A NEW STORY</button></a>
+            <a href="dashboard/new-story"><button type="button" class="btn btn-block">START A NEW STORY</button></a>
         </div>
     </div>
     <div class="row mt-4">
-        {{#if loggedIn}}
         {{>profile-card}}
-        {{/if}}
         <div class="col-6 border-dark border-left text-center">
             <div class="container">
-
                 <h1> YOUR STORIES </h1>
                 <div class="row">
-
                     {{#each stories as |story|}}
-                    <div class="col card mx-auto my-auto text-left">
-                        <img class="card-img-top" src="/src/book.png" alt="Story Image">
-                        <div class="card-body">
-                            <h6 class="card-title">{{story.story_title}}</h5>
-                                <p class="card-text">{{story.story_text}}</p>
-                                <a href='/edit-story/{{story.id}}' class="btn">Edit Story</a>
-                        </div>
-                    </div>
+                        {{> story-card story}}
                     {{/each}}
-
                 </div>
             </div>
         </div>

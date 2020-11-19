@@ -92,6 +92,50 @@ router.get('/add-chapter/:id', userAuth, (req, res) => {
     });
 });
 
+//Read Clicked on Story
+router.get('/read-story/:id', (req,res) => {
+    Story.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'id',
+            'story_title',
+            'story_text',
+            'author_id',
+            'created_at'
+        ],
+        include: [
+            {
+                model: Author,
+                attributes: ['id', 'username' ]
+            },
+            {
+                model: Chapter,
+                attributes: ['chapter_title', 'chapter_text', 'author_id', 'story_id', 'created_at'],
+                include: {
+                    model: Author,
+                    attributes: ['id', 'username']
+                }
+            }
+        ]
+    })
+    .then(storyData => {
+        if (storyData) {
+            const story = storyData.get({ plain: true });
+            console.log(story)
+            res.render('read-story', { story, loggedIn: req.session.loggedIn });
+        } else {
+            res.status(404).json({ message: "We couldn't find the story you requested." });
+        }
+        
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+})
+
 // User login
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {

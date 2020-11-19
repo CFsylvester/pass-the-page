@@ -106,7 +106,7 @@ main {
 footer {
     background-color: rgb(241, 195, 117);
     bottom: 0;
-    position: fixed;
+    position: inherit;
     height: 7rem;   /* Footer height */
     width: 100%;
 } 

@@ -16,22 +16,23 @@
                 <p class="text-left mb-5"> {{chapter_text}}</p>
                 {{/each}}
             </div>
+            
             <div class="text-center">
                 <a href="/read-story/{{story.id}}" class="btn mb-5">Read More</a>
             </div>
 
-            <form>
+            <form id='chapter-form'>
                 <div class="form-group row">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">TITLE</label>
+                    <label for="chapter-title" class="col-sm-2 col-form-label">TITLE</label>
                     <div class="col-sm-10">
-                        <input class="form-control">
+                        <input class="form-control" id='chapter-title'>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="colFormLabel" class="col-sm-2 col-form-label">STORY TEXT</label>
+                    <label for="chapter-text" class="col-sm-2 col-form-label">STORY TEXT</label>
                     <div class="col-sm-10">
-                        <textarea></textarea>
-                        <button type="button" class="btn btn-block">CREATE STORY</button>
+                        <textarea name='chapter-text' id='chapter-text'></textarea>
+                        <button type="submit" class="btn btn-block">CREATE STORY</button>
                     </div>
                 </div>
             </form>
@@ -39,3 +40,7 @@
         {{> need-inspo }}
     </div>
 </div>
+
+{{#if loggedIn}}
+<script src="/javascript/add-chapter.js"></script>
+{{/if}}

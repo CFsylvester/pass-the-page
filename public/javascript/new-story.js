@@ -1,3 +1,4 @@
+const twitterBtn = document.getElementById('twitter');
 async function addChapter(event) {
     event.preventDefault();
 
@@ -25,4 +26,42 @@ async function addChapter(event) {
     }
 }
 
+//Authorization key - Utilizes dotenv 
+const headers = {
+    'Authorization': 'Bearer AAAAAAAAAAAAAAAAAAAAAK69JgEAAAAASCtCX21dEEpAOZ7n2N%2FG1iNOlYM%3DzxdPg8TjiwnT7yx61VyQv5ksslndPNh9tcHf9YvL5og1yv4DAm'
+};
+
+//API Endpoint URL
+const options = {
+    url: 'https://cors-anywhere.herokuapp.com/https://api.twitter.com/1.1/trends/place.json?id=1',
+    headers: headers
+};
+
+//Returns any error codes
+function callback(error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body);
+    }
+}
+
+function trendRequest() {
+
+    fetch(options.url, {
+        method: 'GET',
+        headers: headers
+    }).then(function (twitterReport) {
+        return twitterReport.json()
+    }).then(function (twitterReport) {
+        let resultDisp = document.getElementById('inspoDisplay');
+        resultDisp.innerHTML = "";
+
+        for (let i = 0; i < 5; i++) {
+            let trendItem = document.createElement('li');
+            trendItem.textContent = twitterReport[0].trends[i].name;
+            resultDisp.appendChild(trendItem);
+        }
+    })
+};
+
 document.querySelector('#story-form').addEventListener('submit', addChapter);
+document.querySelector('#twitter').addEventListener('click', trendRequest);

@@ -1,9 +1,22 @@
-
-.page-container {
+html {
+    line-height: var(--lh);
     position: relative;
     min-height: 100vh;
     font-family: 'Goudy Bookletter 1911', serif;
 }
+
+.truncate-overflow {   
+    display: -webkit-box;   
+    -webkit-line-clamp: 5;   
+    -webkit-box-orient: vertical;     
+    overflow: hidden; 
+}
+
+/* .page-container {
+    position: relative;
+    min-height: 100vh;
+    font-family: 'Goudy Bookletter 1911', serif;
+} */
 
 header {
     background-color: rgb(241, 195, 117);
@@ -21,7 +34,12 @@ header {
     align-items: center;
 }
 
-
+.story-text {
+    height: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 h1 {
     font-size: 25px;
@@ -51,6 +69,7 @@ h1 {
 .btn {
     background-color: #790404;
     color: #8b6c38;
+    font-size: 1.25rem;
 }
 
 .chapter {
@@ -123,13 +142,51 @@ footer {
     align-items: center;
 }
 
-/*
+.signup-wrapper, .login-wrapper {
+    margin: 5% 30%;
+    /* border: 0.25px lightgray solid;
+    border-radius: 5px; */
+}
+
+.login-heading {
+    font-size: 4rem;
+    color: #790404;
+}
+
+.button-wrap {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.input-text {
+    color: #790404;
+    font-size: 1.25rem;
+}
+
+.input-border {
+    border: 2px solid #790404;
+}
+
+.input-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.spacer {
+    margin-top: 10px;
+}
+
+/* 
 .signup-wrapper, .login-wrapper, .dashboard {
     margin: 5% 30%;
     border: 0.25px lightgray solid;
     border-radius: 5px;
-}
+} */
 
+/*
 .form-wrapper {
     display: flex;
     justify-content: center;

@@ -14,7 +14,6 @@ router.get('/', userAuth, (req, res) => {
         .then(authorData => {
             if (authorData) {
                 const author = authorData.get({ plain: true });
-                console.log('line 45:', author);
 
                 Story.findAll({
                     where: {
@@ -40,8 +39,7 @@ router.get('/', userAuth, (req, res) => {
                 })
                     .then(storyData => {
                         const stories = storyData.map(story => story.get({ plain: true }));
-                        console.log('line 71 stories:', stories);
-                        // console.log('title', stories.story_title);
+
                         res.render('dashboard', {
                             stories,
                             author,
@@ -53,11 +51,12 @@ router.get('/', userAuth, (req, res) => {
             } else {
                 res.status(404).json({ message: "We couldn't find your info." });
             }
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+        ]
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
 });
 
 // Render a page for the user to update their info

@@ -1,11 +1,22 @@
-
-
-
-.page-container {
+html {
+    line-height: var(--lh);
     position: relative;
     min-height: 100vh;
     font-family: 'Goudy Bookletter 1911', serif;
 }
+
+.truncate-overflow {   
+    display: -webkit-box;   
+    -webkit-line-clamp: 5;   
+    -webkit-box-orient: vertical;     
+    overflow: hidden; 
+}
+
+/* .page-container {
+    position: relative;
+    min-height: 100vh;
+    font-family: 'Goudy Bookletter 1911', serif;
+} */
 
 header {
     background-color: rgb(241, 195, 117);
@@ -23,7 +34,12 @@ header {
     align-items: center;
 }
 
-
+.story-text {
+    height: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 h1 {
     font-size: 25px;

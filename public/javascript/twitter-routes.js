@@ -1,12 +1,10 @@
+const fetch = require("node-fetch");
 require('dotenv').config()
 
-//Pulls Twitter trending topics
-const trendRequest = require('request');
-
-//Authorization key - Utilize dotenv 
+//Authorization key - Utilizes dotenv 
 const headers = {
     'Authorization': process.env.TW_BEARER_TOKEN
-};
+    };
 
 //API Endpoint URL
 const options = {
@@ -21,7 +19,17 @@ function callback(error, response, body) {
     }
 }
 
-//Calling the function back for tweet info
-trendRequest(options, callback);
+function trendRequest(){
 
-module.exports = trendRequest;
+    fetch(options.url, {
+        method: 'GET',
+        headers: headers
+    }).then(function (twitterReport) {
+        return twitterReport.json()
+    }).then(function (twitterReport) {
+        console.log(twitterReport[0].trends[1].name);
+    })
+};
+
+//Exporting the function call for trend info
+module.exports = trendRequest(callback);

@@ -1,15 +1,33 @@
+:root {
+    --bright-red: #bf0808;
+    --dark-red:  #790404; 
+    --dark-gold: #8b6c38;
+    --bright-gold: #bf9650;  
+}
+
+* {
+    font-family: 'Goudy Bookletter 1911', serif;
+}
+
+p {
+    color: var(--dark-gold)
+}
+
+.chapter-title {
+    color: var(--bright-red)
+}
+
 html {
     line-height: var(--lh);
     position: relative;
     min-height: 100vh;
-    font-family: 'Goudy Bookletter 1911', serif;
 }
 
 .truncate-overflow {   
     display: -webkit-box;   
     -webkit-line-clamp: 5;   
     -webkit-box-orient: vertical;     
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 /* .page-container {
@@ -50,7 +68,7 @@ h1 {
 }
 
 .open {
-    color: #790404;
+    color: var(--dark-red);
 }
 
 .card {
@@ -66,17 +84,19 @@ h1 {
     width: 12rem;
 }
 
+.story-author {
+    color: var(--dark-gold)
+}
+
+
 .btn {
-    background-color: #790404;
-    color: #8b6c38;
+    background-color: var(--dark-red);
+    color: var(--bright-gold);
     font-size: 1.25rem;
 }
 
-.chapter {
-    background-color: rgb(197, 192, 192);
-    border-color: #790404;
-    border-radius: 1px;
-    border-style: solid;
+.home-btn {
+    font-size: 2vh;
 }
 
 .dashboard {
@@ -91,7 +111,7 @@ ul {
     list-style:none; 
     margin: 0; 
     padding: 0;
-    color: #790404;
+    color: var(--dark-red);
 }
 
 li {
@@ -105,7 +125,7 @@ li:before {
 
 .profile {
     color: #bf9650;
-    background-color: #790404;
+    background-color: var(--dark-red);
 }
 
 textarea {
@@ -114,7 +134,7 @@ textarea {
 }
 
 .new-story{
-    color: #790404;
+    color: var(--bright-red);
     font-size: 50px;
 }
 
@@ -150,7 +170,7 @@ footer {
 
 .login-heading {
     font-size: 4rem;
-    color: #790404;
+    color: var(--dark-red);
 }
 
 .button-wrap {
@@ -159,12 +179,12 @@ footer {
 }
 
 .input-text {
-    color: #790404;
+    color: var(--dark-red);
     font-size: 1.25rem;
 }
 
 .input-border {
-    border: 2px solid #790404;
+    border: 2px solid var(--dark-red);
 }
 
 .input-center {

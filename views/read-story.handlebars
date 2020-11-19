@@ -1,15 +1,15 @@
-<div class="container">
+<div class="container mt-4">
     <div class="container text-center text-uppercase">
         <h1 class="new-story">{{story.story_title}}</h1>
-        <h4>Original Author: {{story.author.username}} </h4>
+        <h4 class="story-author">Original Author: {{story.author.username}} </h4>
     </div>
-    <div class="container text-left">
+    <div class="container text-left mt-5">
         <p>
             {{story.story_text}}
         </p>
         <div class="chapter my-3">
             {{#each story.chapters}}
-            <p> Chapter: "{{chapter_title}}" </p>
+            <h4 class="text-center chapter-title"> Chapter: "{{chapter_title}}" </h4>
             <p> {{chapter_text}}</p>
             {{/each}}
         </div>

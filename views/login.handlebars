@@ -1,26 +1,29 @@
 <section class='login-wrapper'>
+    <h2 class='login-heading input-center'>LOGIN</h2>
     <div class="form-wrapper">
         <form id='login-form'>
-            <div class="form-group">
-                <div class="col">
-                    <label for="login-name">Username:</label>
-                    <input type="text" class='form-control input' id="login-name" placeholder='your username'>
-                </div>
+
+            <div class="col input-center">
+                <label for="login-name" class='input-text'>Username</label>
+                <input type="text" class='form-control input input-border' id="login-name">
             </div>
-            <div class="form-group">
-                <div class="col">
-                    <label for="login-pw">Password:</label>
-                    <input type="password" class="form-control input" id="login-pw" placeholder='your password'>
-                </div>
+
+            <div class="col input-center">
+                <label for="login-pw" class='input-text'>Password</label>
+                <input type="password" class="form-control input input-border" id="login-pw">
             </div>
-            <div class='button-wrap'>
-                <div class="col">
-                    <button type='submit' class='btn btn-info button'>Login</button>
+
+            <div class="button-wrap">
+                <div class='button-wrap'>
+                    <div class="col">
+                        <button type='submit' class='btn button'>LOGIN</button>
+                    </div>
                 </div>
-            </div>
-            <div class='button-wrap'>
-                <div class="col">
-                    <span>Not signed up? <a href='/signup'>Join now!</a></span>
+                <div class='input-text spacer'>or</div>
+                <div class='button-wrap'>
+                    <div class="col">
+                        <a href='/signup' class='btn button'>CREATE NEW ACCOUNT</a>
+                    </div>
                 </div>
             </div>
         </form>

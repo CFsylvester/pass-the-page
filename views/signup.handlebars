@@ -1,35 +1,34 @@
 <section class='signup-wrapper'>
+    <h2 class='login-heading input-center'>SIGNUP</h2>
+
     <div class="form-wrapper">
         <form id='signup-form'>
-            <div class="form-group">
-                <div class="col">
-                    <label for="signup-name">Username:</label>
-                    <input type="text" class='form-control' id="signup-name" placeholder='your username'>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col">
-                    <label for="signup-email">Email:</label>
-                    <input type="email" class="form-control" id="signup-email" placeholder='your email'>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col">
-                    <label for="signup-pw">Password:</label>
-                    <input type="password" class="form-control" id="signup-pw" placeholder='your password'>
-                </div>
-            </div>
-            <div class='button-wrap'>
-                <div class="col">
 
-                    <button type='submit' class='button btn btn-info'>Submit!</button>
-                </div>
+            <div class="col input-center">
+                <label for="signup-name" class='input-text'>Username</label>
+                <input type="text" class='form-control input input-border' id="signup-name">
             </div>
+
+            <div class="col input-center">
+                <label for="signup-email" class='input-text'>Email</label>
+                <input type="email" class="form-control input input-border" id="signup-email">
+            </div>
+
+            <div class="col input-center">
+                <label for="signup-pw" class='input-text'>Password</label>
+                <input type="password" class="form-control input input-border" id="signup-pw">
+            </div>
+
             <div class='button-wrap'>
                 <div class="col">
+                    <button type='submit' class='button btn'>CREATE NEW ACCOUNT</button>
+                </div>
+            </div>
+            {{!-- <div class='button-wrap'>
+                <div class="col spacer">
                     <span>Already an author? <a href='/login'>Log in!</a></span>
                 </div>
-            </div>
+            </div> --}}
         </form>
     </div>
 </section>

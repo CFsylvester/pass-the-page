@@ -1,6 +1,5 @@
 html {
     line-height: var(--lh);
-    
     position: relative;
     min-height: 100vh;
     font-family: 'Goudy Bookletter 1911', serif;
@@ -42,8 +41,6 @@ header {
     text-overflow: ellipsis;
 }
 
-
-
 h1 {
     font-size: 25px;
 }
@@ -72,6 +69,7 @@ h1 {
 .btn {
     background-color: #790404;
     color: #8b6c38;
+    font-size: 1.25rem;
 }
 
 .chapter {
@@ -144,13 +142,51 @@ footer {
     align-items: center;
 }
 
-/*
+.signup-wrapper, .login-wrapper {
+    margin: 5% 30%;
+    /* border: 0.25px lightgray solid;
+    border-radius: 5px; */
+}
+
+.login-heading {
+    font-size: 4rem;
+    color: #790404;
+}
+
+.button-wrap {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.input-text {
+    color: #790404;
+    font-size: 1.25rem;
+}
+
+.input-border {
+    border: 2px solid #790404;
+}
+
+.input-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.spacer {
+    margin-top: 10px;
+}
+
+/* 
 .signup-wrapper, .login-wrapper, .dashboard {
     margin: 5% 30%;
     border: 0.25px lightgray solid;
     border-radius: 5px;
-}
+} */
 
+/*
 .form-wrapper {
     display: flex;
     justify-content: center;

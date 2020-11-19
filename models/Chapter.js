@@ -11,6 +11,13 @@ Chapter.init(
             primaryKey: true,
             autoIncrement: true
         },
+        chapter_title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
         chapter_text: {
             type: DataTypes.STRING,
             allowNull: false,

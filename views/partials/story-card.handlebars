@@ -4,9 +4,9 @@
         <h6 class="card-title">{{story_title}}</h6>
         <p class="card-text">{{story_text}}</p>
         {{#if completed}}
-        <a href="#" class="btn">Read More</a>
+        <a href="/read-story" class="btn">Read More</a>
         {{else}}
-        <a href="#" class="btn">Contribute Here</a>
+        <a href="/add-chapter/{{id}}" class="btn">Contribute Here</a>
         {{/if}}
     </div>
 </div>

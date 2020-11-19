@@ -1,10 +1,16 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col-8">
+            <div class="container">
+                <h1 class="text-center new-story mb-5">ADD CHAPTER</h1>
+                {{#each story.chapters}}
+                <h4 class="text-left">PREVIOUS CHAPTER: "{{chapter_title}}" </h4>
+                {{!-- <p class="text-left">{{author}}</p> --}}
+                <p class="text-left mb-5"> {{chapter_text}}</p>
+                {{/each}}
+                
+            </div>
             <form>
-                <h1 class="text-center new-story">ADD CHAPTER</h1>
-                <h4 class="text-center">PREVIOUS CHAPTER</h4>
-                <p class="text-left">hi</p>
                 <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">TITLE</label>
                     <div class="col-sm-10">
@@ -20,22 +26,6 @@
                 </div>
             </form>
         </div>
-        <div class="inspo col-sm text-center text-uppercase mt-4">
-            <h1 class="text-center">NEED INSPO?</h1>
-            <div class="container text-left mt-3">
-                <button type="button" class="btn btn-block">SEARCH WITH TWITTER</button>
-                <ul>
-                    <li>
-                        stuff
-                    </li>
-                    <li>
-                        and
-                    </li>
-                    <li>
-                        things
-                    </li>
-                </ul>
-            </div>
-        </div>
+        {{> need-inspo }}
     </div>
 </div>

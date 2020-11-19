@@ -17,7 +17,8 @@ const PORT = process.env.PORT || 3001;
 // enable session and it should automatically expire if idle for 10 minutes with maxAge
 const sess = {
     secret: 'frodo',
-    cookie: { maxAge: 600000 },
+    // cookie: { maxAge: 600000 },
+    cookie: {},
     resave: false,
     // rolling: true,
     saveUninitialized: false,

@@ -6,7 +6,7 @@
             </h1>
         </div>
         <div>
-            <button type="button" class="btn btn-block">START A NEW STORY</button>
+            <a href="/new-story"><button type="button" class="btn btn-block">START A NEW STORY</button></a>
         </div>
     </div>
     <div class="row mt-4">
@@ -14,20 +14,22 @@
             {{>profile-card}}
         {{/if}}
         <div class="col-6 border-dark border-left text-center">
-            <h1> YOUR STORIES </h1>
-            <div class="row">
-                {{#each author.story.length}}
-                <div class="card mx-2 text-left">
-                    <img class="card-img-top" src="/src/book.png" alt="Story Image">
-                    <div class="card-body">
-                        <h6 class="card-title">{{story.story_title}}</h6>
-                        <p class="card-text">{{story_text}}</p>
-                        {{#if completed}}
-                        <a href="#" class="btn">Read More</a>
-                        {{else}}
-                        <a href="#" class="btn">Contribute Here</a>
-                        {{/if}}
-                    </div>
+            <div class="container">
+
+                <h1> YOUR STORIES </h1>
+                <div class="row">
+
+                    {{#each stories as |story|}}
+                    <div class="col card mx-auto my-auto text-left">
+                        <img class="card-img-top" src="/src/book.png" alt="Story Image">
+                        <div class="card-body">
+                            <h6 class="card-title">{{story.story_title}}</h5>
+                                <p class="card-text">{{story.story_text}}</p>
+                                <a href='/edit-story/{{story.id}}' class="btn">Edit Story</a>
+                        </div>
+                     </div>
+                    {{/each}}
+
                 </div>
                 {{/each}}
             </div>

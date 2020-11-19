@@ -11,7 +11,7 @@
     </div>
     <div class="row mt-4">
         {{#if loggedIn}}
-            {{>profile-card}}
+        {{>profile-card}}
         {{/if}}
         <div class="col-6 border-dark border-left text-center">
             <div class="container">
@@ -27,11 +27,10 @@
                                 <p class="card-text">{{story.story_text}}</p>
                                 <a href='/edit-story/{{story.id}}' class="btn">Edit Story</a>
                         </div>
-                     </div>
+                    </div>
                     {{/each}}
 
                 </div>
-                {{/each}}
             </div>
         </div>
     </div>

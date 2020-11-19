@@ -112,7 +112,7 @@ router.get('/read-story/:id', (req, res) => {
             },
             {
                 model: Chapter,
-                attributes: ['chapter_title', 'chapter_text', 'author_id', 'story_id', 'created_at'],
+                attributes: ['chapter_title', 'chapter_text', 'author_id', 'created_at'],
                 include: {
                     model: Author,
                     attributes: ['id', 'username']

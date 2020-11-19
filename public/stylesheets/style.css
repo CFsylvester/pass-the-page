@@ -21,6 +21,8 @@ header {
     align-items: center;
 }
 
+
+
 h1 {
     font-size: 25px;
 }
@@ -92,11 +94,16 @@ textarea {
 
 footer {
     background-color: rgb(241, 195, 117);
-    position: fixed;
     bottom: 0;
+    position: fixed;
     width: 100%;
-    height: 7rem;            /* Footer height */
+    height: 7rem;   /*         Footer height */
 } 
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+}
 
 /* main {
     height: 70vh;

@@ -26,25 +26,22 @@
             <p>{{author.bio}}</p>
         </div>
         <div class="col-6 border-dark border-left text-center">
-            <h1> YOUR STORIES </h1>
-            <div class="row">
-                <div class="card mx-auto my-auto text-left">
-                    <img class="card-img-top" src="/src/book.png" alt="Story Image">
-                    <div class="card-body">
-                        <h6 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn">Edit Story</a>
+            <div class="container">
+
+                <h1> YOUR STORIES </h1>
+                <div class="row">
+
+                    {{#each stories as |story|}}
+                    <div class="col card mx-auto my-auto text-left">
+                        <img class="card-img-top" src="/src/book.png" alt="Story Image">
+                        <div class="card-body">
+                            <h6 class="card-title">{{story.story_title}}</h5>
+                                <p class="card-text">{{story.story_text}}</p>
+                                <a href='/edit-story/{{story.id}}' class="btn">Edit Story</a>
+                        </div>
                     </div>
-                </div>
-                <div class="card mx-auto my-auto text-left">
-                    <img class="card-img-top" src="/src/book.png" alt="Story Image">
-                    <div class="card-body">
-                        <h6 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn">Edit Story</a>
-                    </div>
+                    {{/each}}
+
                 </div>
             </div>
         </div>

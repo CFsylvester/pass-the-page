@@ -45,9 +45,9 @@ const analyzeText = require('../utils/natural');
 router.get('/', (req, res) => {
     console.log('========= Homepage rendered =========');
     Story.findAll({
-        where: {
-            completed: false
-        },
+        // where: {
+        //     completed: false
+        // },
         order: [['createdAt', 'DESC']],
         include: [
             {

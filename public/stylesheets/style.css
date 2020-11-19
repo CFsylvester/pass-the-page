@@ -1,16 +1,129 @@
-* {
-    box-sizing: border-box;
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
     font-family: 'Goudy Bookletter 1911', serif;
 }
 
-main {
-    height: 70vh;
+header {
+    background-color: rgb(241, 195, 117);
+}
+
+.nav-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+h1 {
+    font-size: 25px;
+}
+
+.all, .inspo {
+    color: #bf9650;
+}
+
+.open {
+    color: #790404;
+}
+
+.card {
+    color: black;
+    font-size: 13px;
+    height: 18rem;
+    width: 12rem;
+    border: none
+}
+
+.card-img-top {
+    height: 6rem;
+    width: 12rem;
+}
+
+.btn {
+    background-color: #790404;
+    color: #8b6c38;
+}
+
+.chapter {
+    background-color: rgb(197, 192, 192);
+    border-color: #790404;
+    border-radius: 1px;
+    border-style: solid;
+}
+
+.dashboard {
+    color: #bf0808;
 }
 
 a:link {
     text-decoration: none;
 }
 
+ul {
+    list-style:none; 
+    margin: 0; 
+    padding: 0;
+    color: #790404;
+}
+
+li {
+    margin-top: 1rem;
+}
+
+li:before { 
+    content: '#'; 
+    
+}
+
+.profile {
+    color: #bf9650;
+    background-color: #790404;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+}
+
+.new-story{
+    color: #790404;
+    font-size: 50px;
+}
+
+main {
+    padding-bottom: 14rem;
+}
+
+footer {
+    background-color: rgb(241, 195, 117);
+    bottom: 0;
+    position: inherit;
+    height: 7rem;   /* Footer height */
+    width: 100%;
+} 
+
+.footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.devs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*
 .signup-wrapper, .login-wrapper, .dashboard {
     margin: 5% 30%;
     border: 0.25px lightgray solid;
@@ -36,16 +149,4 @@ a:link {
     text-align: center;
     margin-top: 15px;
 }
-
-.footer {
-    background-color: white;
-    display: flex;
-    justify-content: space-evenly;
-    height: 6vh;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    /* padding-top: 25spx; */
-    /* padding-bottom: 50px; */
-    border-top: 0.25px solid lightgray;
-}
+} */

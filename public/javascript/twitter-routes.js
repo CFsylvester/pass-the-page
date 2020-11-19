@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 //Pulls Twitter trending topics
-const tweetRequest = require('request');
+const trendRequest = require('request');
 
 //Authorization key - Utilize dotenv 
 const headers = {
@@ -22,6 +22,6 @@ function callback(error, response, body) {
 }
 
 //Calling the function back for tweet info
-tweetRequest(options, callback);
+trendRequest(options, callback);
 
-module.exports = tweetRequest;
+module.exports = trendRequest;

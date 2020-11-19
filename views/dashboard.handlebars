@@ -1,15 +1,25 @@
-<section class='dashboard'>
-    <div class="card">
-        <div class="card-body">
-            <ul class="list-group list-group-flush">
-                <li class='h2 card-title list-group-item'>{{author.username}} </li>
-                <li class='card-subtitle list-group-item'>{{author.email}}</li>
-                <li class='h4 card-title list-group-item'>{{author.title}}</li>
-                <li class="card-body card-title list-group-item">{{author.bio}}</li>
-                <li class='card-subtitle list-group-item'><a href="/dashboard/edit-user/{{author.id}}">Update your
-                        info</a>
-                </li>
-            </ul>
+<section class='dashboard container'>
+    <div class="row text-right mt-3">
+        <div class="col-6">
+            <h1>
+                DASHBOARD
+            </h1>
+        </div>
+        <div>
+            <a href="dashboard/new-story"><button type="button" class="btn btn-block">START A NEW STORY</button></a>
+        </div>
+    </div>
+    <div class="row mt-4">
+        {{>profile-card}}
+        <div class="col-6 border-dark border-left text-center">
+            <div class="container">
+                <h1> YOUR STORIES </h1>
+                <div class="row">
+                    {{#each stories as |story|}}
+                        {{> story-card story}}
+                    {{/each}}
+                </div>
+            </div>
         </div>
     </div>
 </section>

@@ -1,0 +1,12 @@
+<div class="card mx-2 text-left">
+    <img class="card-img-top" src="/src/book.png" alt="Story Image">
+    <div class="card-body">
+        <h6 class="card-title">{{story_title}}</h6>
+        <p class="card-text">{{story_text}}</p>
+        {{#if completed}}
+        <a href="/read-story/{{id}}" class="btn">Read More</a>
+        {{else}}
+        <a href="/add-chapter/{{id}}" class="btn">Contribute Here</a>
+        {{/if}}
+    </div>
+</div>

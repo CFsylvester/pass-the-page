@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Chapter extends Model {}
+class Story extends Model { }
 
-Chapter.init(
+Story.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,15 +11,19 @@ Chapter.init(
             primaryKey: true,
             autoIncrement: true
         },
-        chapter_title: {
+        completed: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true
+        },
+        story_title: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
-        chapter_text: {
-            type: DataTypes.STRING,
+        story_text: {
+            type: DataTypes.STRING(500),
             allowNull: false,
             validate: {
                 len: [1]
@@ -28,15 +32,8 @@ Chapter.init(
         author_id: {
             type: DataTypes.INTEGER,
             references: {
-              model: 'author',
-              key: 'id'
-            }
-        },
-        story_id: {
-            type: DataTypes.INTEGER,
-            references: {
-              model: 'story',
-              key: 'id'
+                model: 'author',
+                key: 'id'
             }
         }
     },
@@ -44,8 +41,8 @@ Chapter.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'chapter'
+        modelName: 'story'
     }
 );
 
-module.exports = Chapter; 
+module.exports = Story;

@@ -1,0 +1,46 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-8">
+            <div class="container">
+                <div class="row text-right mt-3">
+                    <div class="col-6">
+                        <h1 class="text-center mb-5">ADD CHAPTER</h1>
+                    </div>
+                    <div>
+                        <a href="dashboard/new-story"><button type="button" class="btn btn-block">START A NEW STORY</button></a>
+                    </div>
+                </div>
+                
+                {{#each story.chapters}}
+                <h4 class="text-left">PREVIOUS CHAPTER: "{{chapter_title}}" </h4>
+                <p class="text-left mb-5"> {{chapter_text}}</p>
+                {{/each}}
+            </div>
+            
+            <div class="text-center">
+                <a href="/read-story/{{story.id}}" class="btn mb-5">Read More</a>
+            </div>
+
+            <form id='chapter-form'>
+                <div class="form-group row">
+                    <label for="chapter-title" class="col-sm-2 col-form-label">TITLE</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id='chapter-title'>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="chapter-text" class="col-sm-2 col-form-label">STORY TEXT</label>
+                    <div class="col-sm-10">
+                        <textarea name='chapter-text' id='chapter-text'></textarea>
+                        <button type="submit" class="btn btn-block">CREATE STORY</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {{> need-inspo }}
+    </div>
+</div>
+
+{{#if loggedIn}}
+<script src="/javascript/add-chapter.js"></script>
+{{/if}}

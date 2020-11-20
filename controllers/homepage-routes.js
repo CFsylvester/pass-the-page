@@ -2,16 +2,32 @@ const router = require('express').Router();
 // const sequelize = require('../config/connection');
 const { Story, Author, Chapter } = require('../models');
 const userAuth = require('../utils/userAuth');
-// const analyzeText = require('../utils/natural');
+const natural = require('natural');
+const analyzeText = require('../utils/natural');
+const Analyzer = require('natural').SentimentAnalyzer;
+const stemmer = require('natural').PorterStemmer;
+const analyzer = new Analyzer("English", stemmer, "afinn");
+const tokenizer = new natural.WordTokenizer();
+
+// Function to analyze story sentiment
+const checkStory = (stories) => {
+    return new Promise((res, rej) => {
+        res(stories.map(story => {
+            const storyText = story.story_text;
+            const splitText = tokenizer.tokenize(storyText);
+            const analyzedText = analyzer.getSentiment(splitText);
+            return {
+                ...story,
+                storyScore: analyzedText
+            };
+        }));
+    });
+};
 
 // Route to get open stories for other users to contribute to
 router.get('/', (req, res) => {
     console.log('========= Homepage rendered =========');
     Story.findAll({
-        // where: {
-        //     completed: false
-        // },
-        // order: [['createdAt', 'DESC']],
         attributes: [
             'id',
             'completed',
@@ -37,11 +53,15 @@ router.get('/', (req, res) => {
     })
         .then(storyData => {
             const stories = storyData.map(story => story.get({ plain: true }));
-            res.render('homepage', {
-                stories,
-                // analyzeText, 
-                loggedIn: req.session.loggedIn
-            });
+            checkStory(stories)
+                .then(analyzerData => {
+
+                    res.render('homepage', {
+                        stories: analyzerData,
+                        loggedIn: req.session.loggedIn
+                    });
+
+                });
         })
         .catch(err => {
             console.log(err);
@@ -124,6 +144,8 @@ router.get('/read-story/:id', (req, res) => {
             if (storyData) {
                 const story = storyData.get({ plain: true });
                 console.log(story);
+                console.log('author', story.chapters[0].author);
+
                 res.render('read-story', { story, loggedIn: req.session.loggedIn });
             } else {
                 res.status(404).json({ message: "We couldn't find the story you requested." });

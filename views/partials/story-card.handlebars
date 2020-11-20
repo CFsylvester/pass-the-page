@@ -3,6 +3,7 @@
     <div class="card-body">
         <h6 class="card-title text-center">{{story_title}}</h6>
         <p id='story-{{id}}' class="card-text text-left truncate-overflow">{{story_text}}</p>
+        <p>{{storyScore}}</p>
         {{#if completed}}
         <a href="/read-story/{{id}}" class="btn">Read More</a>
         {{else}}

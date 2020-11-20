@@ -13,6 +13,6 @@ const analyzeText = (str) => {
 };
 
 // console.log('hatred:', analyzeText('i love sentiment analysis! i love sentiment analysis! i love sentiment analysis! i love sentiment analysis!'));
-// console.log('positive:', analyzeText('i like coding a lot.'));
+// console.log('positive:', analyzeText("The Great War was Won, The Last War is done, but winter is still here. Far from the ashes of King's Landing, The North remembers as it tries to rebuild...and beyond The Wall, the shadow of The Long Night still looms over those that do not kneel."));
 
 module.exports = analyzeText;

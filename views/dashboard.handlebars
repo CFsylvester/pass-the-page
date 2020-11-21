@@ -1,19 +1,19 @@
 <section class='dashboard container'>
     <div class="row text-right mt-3">
         <div class="col-6">
-            <h1>
-                DASHBOARD
+            <h1 class="gold text-uppercase">
+                Dashboard
             </h1>
         </div>
         <div>
             <a href="dashboard/new-story"><button type="button" class="btn btn-block">START A NEW STORY</button></a>
         </div>
     </div>
-    <div class="row mt-4">
+    <div class="rrow d-flex justify-content-center mt-4">
         {{>profile-card}}
         <div class="col-6 border-dark border-left text-center">
             <div class="container">
-                <h1> YOUR STORIES </h1>
+                <h1 class="maroon text-uppercase"> YOUR STORIES </h1>
                 <div class="row d-flex justify-content-center">
                     {{#each stories as |story|}}
                         {{> story-card story}}

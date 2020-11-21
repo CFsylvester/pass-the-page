@@ -13,73 +13,75 @@
 </head>
 
 <body>
-    <header>
-        <nav class="container">
-            <div class="row nav-wrap">
-                {{#if loggedIn}}
-                <div>
-                    <a href="/dashboard"><button class='btn'>Dashboard</button></a>
-                </div>
-                {{else}}
-                <div>
-                    {{!-- empty --}}
-                </div>
-                {{/if}}
-                <div>
-                    <a href="/">
-                        <img src='/src/logo.png' width="400" height="150" alt="" loading="lazy">
-                    </a>
-                </div>
-                {{#if loggedIn}}
-                <div class="login-wrap">
+    <div class="">
+        <header>
+            <nav>
+                <div class="row justify-content-center">
+                    <div class="col-1 mr-4">
+                        {{#if loggedIn}}
+                        <div class="">
+                            <a href="/dashboard" id='dashboard-btn'>Dashboard</a>
+                        </div>
+                        {{else}}
+                        <div>
+                            {{!-- empty --}}
+                        </div>
+                        {{/if}}
+                    </div>
+                    <div class="col-8">
+                        <a href="/" class="image">
+                            <img src='/src/logo.png'   alt="" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="col-1">
+                        {{#if loggedIn}}
+                        <div class="login-wrap">
 
-                    <div>
-                        <a href="/login"><button id='logout-btn' class='btn'>Logout</button></a>
+                            <div>
+                                <a href="/logout" id='logout-btn'>Logout</a>
+                            </div>
+                        </div>
+                        {{else}}
+                        {{!-- <div>
+                            <a href="/signup"><button class='btn btn-success'>Create Account</button></a>
+                        </div> --}}
+                        <div>
+                            <a href="/login" id='login-btn'>Login</a>
+                        </div>
+                        {{/if}}
                     </div>
                 </div>
-                {{else}}
-                {{!-- <div>
-                    <a href="/signup"><button class='btn btn-success'>Create Account</button></a>
-                </div> --}}
+            </nav>
+        </header>
+        <main class="mb-5">
+            {{{ body }}}
+        </main>
+        <footer>
+            <div class="row py-1 ml-1">
                 <div>
-                    <a href="/login">
-                        <button class='btn'>Login</button>
+                    <a href="/">
+                        <img src='/src/logo.png' width="250" height="100" alt="" loading="lazy">
                     </a>
                 </div>
-                {{/if}}
+                <div class='devs'>
+                    <p class="text-uppercase">
+                        Developed By:
+                    </p>
+                    <p>
+                        <a href="https://www.w3schools.com" target="_blank">
+                            Claire Sylvester,
+                        </a>
+                        <a href="https://www.w3schools.com" target="_blank">
+                            Curtis Henderson,
+                        </a>
+                        <a href="https://www.w3schools.com" target="_blank">
+                            & Tom Chestnut
+                        </a>
+                    </p>
+                </div>
             </div>
-        </nav>
-    </header>
-    <main>
-        {{{ body }}}
-    </main>
-
-    <footer>
-        <div class="footer row py-1 ml-1">
-            <div>
-                <a href="/">
-                    <img src='/src/logo.png' width="250" height="100" alt="" loading="lazy">
-                </a>
-            </div>
-            <div class='devs'>
-                <p class="text-uppercase">
-                    Developed By:
-                </p>
-                <p>
-                    <a href="https://www.w3schools.com" target="_blank">
-                        Claire Sylvester,
-                    </a>
-                    <a href="https://www.w3schools.com" target="_blank">
-                        Curtis Henderson,
-                    </a>
-                    <a href="https://www.w3schools.com" target="_blank">
-                        & Tom Chestnut
-                    </a>
-                </p>
-            </div>
-        </div>
-    </footer>
-
+        </footer>
+    </div>
     {{#if loggedIn}}
     <script src='/javascript/logout.js'></script>
     {{/if}}

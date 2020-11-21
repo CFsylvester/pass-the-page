@@ -27,7 +27,7 @@ This project was created and devleoped by
 1.	Create a functional application with a polished UI
 2.	Allow users to create stories that will be readable by other users
 a.	Give users the opportunity to collaborate and add on to other user's stories
-b.	Allow users to update or delete their contibutions
+b.	Allow users to update or delete their contributions
 3.	Have story genre pictures that match the user's genre choice using sentiment analysis
 4.	Allow the user to view trending topics from Twitter for inspiration  
 5.	Ability to visit other user's profiles to see their created stories and stories open for collaboration

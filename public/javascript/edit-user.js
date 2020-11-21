@@ -1,8 +1,6 @@
 async function editUser(event) {
     event.preventDefault();
 
-    const username = document.querySelector('#username-edit').value.trim();
-    const email = document.querySelector('#email-edit').value.trim();
     const title = document.querySelector('#title-edit').value.trim();
     const bio = document.querySelector('#bio-edit').value.trim();
     const id = window.location.toString().split('/')[
@@ -12,7 +10,7 @@ async function editUser(event) {
     const response = await fetch(`/api/authors/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
-            username, email, title, bio
+            title, bio
         }),
         headers: { 'Content-Type': 'application/json' }
     });

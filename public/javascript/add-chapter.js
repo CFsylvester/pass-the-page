@@ -1,13 +1,18 @@
 async function addChapter(event) {
     event.preventDefault();
 
+    var completed = document.querySelector('#completeCheck');
     const chapter_title = document.querySelector('#chapter-title').value.trim();
     const chapter_text = document.querySelector('#chapter-text').value.trim();
     const story_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
 
     const response = await fetch('/api/chapters', {
+        
         method: 'POST',
         body: JSON.stringify({
             chapter_title,
@@ -17,6 +22,26 @@ async function addChapter(event) {
         headers: { 'Content-Type': 'application/json' }
     });
 
+    // if (completed.checked == true){
+    //     // var completed = 1
+    //     const response2 = await fetch(`/api/stories/${id}`, {
+    //         method: 'PUT',
+    //         body: JSON.stringify({
+    //             // id,
+    //             completed
+    //         }),
+    //         headers: { 'Content-Type': 'application/json' }
+    //     });
+    //     if (response2.ok) {
+    //         console.log('true');
+    //     } else {
+    //         console.log(response2);
+    //         alert(response2.statusText);
+    //     }
+    // } else {
+    //     console.log('false');
+    // }
+ 
     if (response.ok) {
         document.location.replace('/');
     } else {
@@ -24,6 +49,7 @@ async function addChapter(event) {
         alert(response.statusText);
     }
 }
+
 
 //Authorization key - Utilizes dotenv 
 const headers = {

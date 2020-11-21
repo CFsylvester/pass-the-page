@@ -50,8 +50,10 @@ router.put('/:id', (req, res) => {
         }
     },
         {
+            completed: req.body.completed,
             story_title: req.body.story_title,
             story_text: req.body.story_text
+            
         })
         .then(dbStoryData => {
             if (!dbStoryData) {

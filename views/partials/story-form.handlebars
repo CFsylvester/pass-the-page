@@ -1,15 +1,20 @@
 <form id='chapter-form'>
-    <div class="form-group row">
-        <label for="chapter-title" class="col-sm-2 col-form-label">TITLE</label>
-        <div class="col-sm-10">
+    <div class="form-group maroon">
+        <label for="chapter-title" class="col-form-label">TITLE</label>
+        <div >
             <input class="form-control" id='chapter-title'>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="chapter-text" class="col-sm-2 col-form-label">STORY TEXT</label>
-        <div class="col-sm-10 text-center">
-            <textarea name='chapter-text' id='chapter-text'></textarea>
-            <button type="submit" class="btn btn-block">SUBMIT</button>
+        <label for="chapter-text" class="mt-2 col-form-label">STORY TEXT</label>
+        <div class="text-center">
+            <textarea name='chapter-text form-control' id='chapter-text'></textarea>
+            
         </div>
+        <div class="form-check text-left my-2">
+            <input class="form-check-input" type="checkbox" value="" id="completeCheck">
+            <label class="form-check-label text-uppercase" for="completeCheck">
+                Complete Story
+            </label>
+        </div>
+        <button type="submit" class="btn btn-block">SUBMIT</button>
     </div>
 </form>

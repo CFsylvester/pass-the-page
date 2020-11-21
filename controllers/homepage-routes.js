@@ -112,6 +112,7 @@ router.get('/add-chapter/:id', userAuth, (req, res) => {
         },
         attributes: [
             'id',
+            'completed',
             'story_title',
             'story_text',
             'author_id',

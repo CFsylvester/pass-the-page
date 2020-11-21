@@ -88,11 +88,22 @@ h1 {
     color: var(--dark-gold)
 }
 
+.stories {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
 .btn {
     background-color: var(--dark-red);
     color: var(--bright-gold);
     font-size: 1.25rem;
+}
+
+.more {
+    font-size: 15px;
 }
 
 .home-btn {
@@ -164,8 +175,6 @@ footer {
 
 .signup-wrapper, .login-wrapper {
     margin: 5% 30%;
-    /* border: 0.25px lightgray solid;
-    border-radius: 5px; */
 }
 
 .login-heading {

@@ -1,0 +1,7 @@
+<div class="row">
+    {{#each stories as |story|}}
+    {{#unless completed}}
+    {{> story-card story}}
+    {{/unless}}
+    {{/each}}
+</div>

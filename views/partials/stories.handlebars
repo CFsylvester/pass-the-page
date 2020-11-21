@@ -1,0 +1,7 @@
+<div class="row">
+    {{#each stories as |story|}}
+    {{#if completed}}
+    {{> story-card story}}
+    {{/if}}
+    {{/each}}
+</div>

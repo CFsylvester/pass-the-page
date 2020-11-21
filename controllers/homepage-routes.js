@@ -4,20 +4,11 @@ const { Story, Author, Chapter } = require('../models');
 const userAuth = require('../utils/userAuth');
 // const analyzeText = require('../utils/natural');
 
-// Route to get open stories for other users to contribute to
+// Route to get stories for homepage
 router.get('/', (req, res) => {
-    console.log('========= Homepage rendered =========');
     Story.findAll({
         limt: 6,
         order: [['createdAt', 'DESC']],
-        // attributes: [
-        //     'id',
-        //     'completed',
-        //     'story_title',
-        //     'story_text',
-        //     'author_id',
-        //     'created_at',
-        // ],
         include: [
             {
                 model: Author,
@@ -36,6 +27,73 @@ router.get('/', (req, res) => {
         .then(storyData => {
             const stories = storyData.map(story => story.get({ plain: true }));
             res.render('homepage', {
+                stories,
+                loggedIn: req.session.loggedIn
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+// Route for viewing all-stories page
+router.get('/all-stories', (req, res) => {
+    Story.findAll({
+        order: [['createdAt', 'DESC']],
+        include: [
+            {
+                model: Author,
+                attributes: ['id', 'username', 'title', 'createdAt']
+            },
+            {
+                model: Chapter,
+                attributes: ['chapter_text'],
+                include: {
+                    model: Author,
+                    attributes: ['username']
+                }
+            }
+        ]
+    })
+        .then(storyData => {
+            const stories = storyData.map(story => story.get({ plain: true }));
+            res.render('all-stories', {
+                stories,
+                loggedIn: req.session.loggedIn
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+// Route for viewing all-open-stories page
+router.get('/open-stories', (req, res) => {
+    Story.findAll({
+        where: {
+            completed: false
+        },
+        order: [['createdAt', 'DESC']],
+        include: [
+            {
+                model: Author,
+                attributes: ['id', 'username', 'title', 'createdAt']
+            },
+            {
+                model: Chapter,
+                attributes: ['chapter_text'],
+                include: {
+                    model: Author,
+                    attributes: ['username']
+                }
+            }
+        ]
+    })
+        .then(storyData => {
+            const stories = storyData.map(story => story.get({ plain: true }));
+            res.render('open-stories', {
                 stories,
                 loggedIn: req.session.loggedIn
             });

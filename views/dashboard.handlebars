@@ -1,24 +1,25 @@
 <section class='dashboard container'>
-    <div class="row text-right mt-3">
-        <div class="col-6">
-            <h1 class="gold text-uppercase">
-                Dashboard
-            </h1>
+    <div class="row d-flex text-center mt-3">
+        <div class="col-md-6 ">
+            <h1 class="gold text-uppercase border-bottom mb-5">Dashboard</h1>
+            {{>profile-card}}
         </div>
-        <div>
-            <a href="dashboard/new-story"><button type="button" class="btn btn-block">START A NEW STORY</button></a>
+        <div class="col-md-6">
+            <h1 class="maroon text-uppercase border-bottom mb-5"> YOUR STORIES </h1>
+            <a href="/dashboard/new-story"><button type="button" class="btn">START A NEW STORY</button></a>
+            <div class="row d-flex justify-content-center">
+                {{#each stories as |story|}}
+                {{> story-card story}}
+                {{/each}}
+            </div>
+
         </div>
     </div>
-    <div class="rrow d-flex justify-content-center mt-4">
-        {{>profile-card}}
+    <div class="row d-flex justify-content-center mt-4">
+        
         <div class="col-6 border-dark border-left text-center">
             <div class="container">
-                <h1 class="maroon text-uppercase"> YOUR STORIES </h1>
-                <div class="row d-flex justify-content-center">
-                    {{#each stories as |story|}}
-                        {{> story-card story}}
-                    {{/each}}
-                </div>
+                
             </div>
         </div>
     </div>

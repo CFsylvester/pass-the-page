@@ -2,21 +2,24 @@
     <div class="row">
         <div class="col-8">
             <div class="container">
-                <div class="row text-right mt-3">
+                <div class="input-center row text-right mt-3">
                     <div class="col-6">
                         <h2 class="maroon text-uppercase">ADD CHAPTER</h1>
                     </div>
                     <div>
-                        <a href="/dashboard/new-story"><button type="button" class="btn btn-block">START A NEW STORY</button></a>
+                        <a href="/dashboard/new-story"><button type="button" class="btn btn-block">START A NEW
+                                STORY</button></a>
                     </div>
                 </div>
-                
+
                 {{#each story.chapters}}
-                <h4 class="text-left">PREVIOUS CHAPTER: "{{chapter_title}}" </h4>
-                <p class="text-left mb-5"> {{chapter_text}}</p>
+                <div class="pt-5 input-center">
+                    <h4 class="text-left">PREVIOUS CHAPTER: "{{chapter_title}}" </h4>
+                    <p class="text-left mb-5"> {{chapter_text}}</p>
+                </div>
                 {{/each}}
             </div>
-            
+
             <div class="text-center">
                 <a href="/read-story/{{story.id}}" class="btn mb-5">Read More</a>
             </div>

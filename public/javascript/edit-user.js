@@ -2,7 +2,6 @@ async function editUser(event) {
     event.preventDefault();
 
     const username = document.querySelector('#username-edit').value.trim();
-    // const password = document.querySelector('#pw-edit').value.trim();
     const email = document.querySelector('#email-edit').value.trim();
     const title = document.querySelector('#title-edit').value.trim();
     const bio = document.querySelector('#bio-edit').value.trim();

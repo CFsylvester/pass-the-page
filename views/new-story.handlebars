@@ -6,9 +6,47 @@
     </div>
     <div class="row d-flex justify-content-center">
         <div class="col-8">
+<<<<<<< HEAD
             {{>story-form}}
+=======
+            <form id='story-form'>
+                <h1 class="text-center new-story">NEW STORY</h1>
+                <div class="form-group row">
+                    <label for="story-title" class="col-sm-2 col-form-label">TITLE</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id='story-title'>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="story-genre" class="col-sm-2 col-form-label">GENRE</label>
+                    <div class="col-sm-10">
+                        <select class="form-control custom-select mr-sm-2" id='story-genre'>
+                            <option selected>Assign Genre</option>
+                            <option value="adventure">Adventure</option>
+                            <option value="comedy">Comedy</option>
+                            <option value="comic">Comic</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="fiction2">Fiction</option>
+                            <option value="historical">Historical</option>
+                            <option value="horror">Horror</option>
+                            <option value="mystery">Mystery</option>
+                            <option value="romance">Romance</option>
+                            <option value="sci-fi">Sci-Fi</option>
+                            <option value="spooky">Spooky</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="story-text" class="col-sm-2 col-form-label">STORY TEXT</label>
+                    <div class="col-sm-10">
+                        <textarea id='story-text'></textarea>
+                        <button type="submit" class="btn btn-block">CREATE STORY</button>
+                    </div>
+                </div>
+            </form>
+>>>>>>> 70061184b83f4175323d9d41a5a0700da3f84286
         </div>
-       {{> need-inspo}}
+        {{> need-inspo}}
     </div>
 </div>
 

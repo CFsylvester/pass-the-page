@@ -1,7 +1,7 @@
 <div class="row mt-5 mx-5">
-    <div class="all col border-dark border-right text-center">
-        <h1>ALL STORIES</h1>
-        <div class="row">
+    <div class="col border-dark border-right text-center">
+        <h2 class="gold text-uppercase">ALL STORIES</h1>
+        <div class="row d-flex justify-content-center">
             {{#each stories as |story|}}
             {{#if completed}}
                 {{> story-card story}}
@@ -9,9 +9,9 @@
             {{/each}}
         </div>
     </div>
-    <div class="open col text-center">
-        <h1>OPEN STORIES</h1>
-        <div class="row">
+    <div class="col text-center">
+        <h2 class="maroon text-uppercase">OPEN STORIES</h1>
+        <div class="row d-flex justify-content-center">
             {{#each stories as |story|}}
             {{#unless completed}}
                 {{> story-card story}}

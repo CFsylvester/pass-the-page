@@ -1,192 +1,71 @@
+/* Root Colors */
 :root {
-    --bright-red: #bf0808;
-    --dark-red:  #790404; 
+    --red: #bf0808;
+    --maroon:  #790404; 
     --dark-gold: #8b6c38;
-    --bright-gold: #bf9650;  
+    --bright-gold: rgb(241, 195, 117);  
 }
 
+/* Effects Entire Html */
 * {
     font-family: 'Goudy Bookletter 1911', serif;
+    
 }
 
-p {
-    color: var(--dark-gold)
+/* Color Classes */
+.gold {
+    color: var(--dark-gold); 
+}
+.maroon {
+    color: var(--maroon); 
+}
+.red {
+    color: var(--red)
 }
 
-.chapter-title {
-    color: var(--bright-red)
-}
-
-html {
-    line-height: var(--lh);
-    position: relative;
-    min-height: 100vh;
-}
-
-.truncate-overflow {   
-    display: -webkit-box;   
-    -webkit-line-clamp: 5;   
-    -webkit-box-orient: vertical;     
-    overflow: hidden;
-}
-
-/* .page-container {
-    position: relative;
-    min-height: 100vh;
-    font-family: 'Goudy Bookletter 1911', serif;
-} */
-
+/* Navigation */
 header {
-    background-color: rgb(241, 195, 117);
+    background-color: var(--bright-gold);
+    height: 100px;
+    width: 100%;
+}
+.image {
+    height: 100px;
+    width: 100%;
+    object-fit: contain
+}
+.image img {
+  max-width: 100%;
+  max-height: 100px;
+  margin: auto;
+  display: block;
 }
 
-.nav-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
+/* Login/SignUp Styling */
 .login-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-.story-text {
-    height: 100px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.login-heading {
+    font-size: 4rem;
 }
-
-h1 {
-    font-size: 25px;
-}
-
-.all, .inspo {
-    color: #bf9650;
-}
-
-.open {
-    color: var(--dark-red);
-}
-
-.card {
-    color: black;
-    font-size: 13px;
-    height: 18rem;
-    width: 12rem;
-    border: none
-}
-
-.card-img-top {
-    height: 6rem;
-    width: 12rem;
-}
-
-.story-author {
-    color: var(--dark-gold)
-}
-
-
-.btn {
-    background-color: var(--dark-red);
-    color: var(--bright-gold);
-    font-size: 1.25rem;
-}
-
-.home-btn {
-    font-size: 2vh;
-}
-
-.dashboard {
-    color: #bf0808;
-}
-
-a:link {
-    text-decoration: none;
-}
-
-ul {
-    list-style:none; 
-    margin: 0; 
-    padding: 0;
-    color: var(--dark-red);
-}
-
-li {
-    margin-top: 1rem;
-}
-
-li:before { 
-    content: '#'; 
-    
-}
-
-.profile {
-    color: #bf9650;
-    background-color: var(--dark-red);
-}
-
-textarea {
-    width: 100%;
-    height: 200px;
-}
-
-.new-story{
-    color: var(--bright-red);
-    font-size: 50px;
-}
-
-main {
-    padding-bottom: 14rem;
-}
-
-footer {
-    background-color: rgb(241, 195, 117);
-    bottom: 0;
-    position: inherit;
-    height: 7rem;   /* Footer height */
-    width: 100%;
-} 
-
-.footer{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.devs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .signup-wrapper, .login-wrapper {
     margin: 5% 30%;
     /* border: 0.25px lightgray solid;
     border-radius: 5px; */
 }
-
-.login-heading {
-    font-size: 4rem;
-    color: var(--dark-red);
-}
-
 .button-wrap {
     text-align: center;
     margin-top: 15px;
 }
-
 .input-text {
-    color: var(--dark-red);
+    color: var(--maroon);
     font-size: 1.25rem;
 }
-
 .input-border {
-    border: 2px solid var(--dark-red);
+    border: 2px solid var(--maroon);
 }
-
 .input-center {
     display: flex;
     flex-direction: column;
@@ -195,35 +74,191 @@ footer {
     padding-bottom: 10px;
 }
 
-.spacer {
-    margin-top: 10px;
+/*Story Card*/
+.card {
+    background-color: rgb(253, 251, 237);
+    font-size: 13px;
+    height: 22rem;
+    width: 15rem;
+    border-style: solid; 
+    border-width: 1px;
+    border-color: black;
+}
+/* Story-card text overflow */
+.truncate-overflow {   
+    display: -webkit-box;   
+    -webkit-line-clamp: 5;   
+    -webkit-box-orient: vertical;     
+    overflow: hidden;
+}
+.story-text {
+    height: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* 
-.signup-wrapper, .login-wrapper, .dashboard {
-    margin: 5% 30%;
-    border: 0.25px lightgray solid;
-    border-radius: 5px;
-} */
-
-/*
-.form-wrapper {
-    display: flex;
-    justify-content: center;
-    margin: 15px;
-}
-
-.bio-input {
+/* Add Chapter/Story */
+textarea {
     width: 100%;
-    height: 25vh;
+    height: 200px;
 }
 
-.button {
-    width: 50%;
+/* Twitter HashTags */
+ul {
+    list-style:none; 
+    margin: 0; 
+    padding: 0;
+}
+li {
+    margin-top: 1rem;
+}
+li:before { 
+    content: '#'; 
 }
 
-.button-wrap {
-    text-align: center;
-    margin-top: 15px;
+/* User Profile */
+.profile {
+    background-color: var(--maroon);
 }
+
+/* Button Styling */
+.btn {
+    background-color: var(--maroon);
+    color: var(--dark-gold);
+    font-size: 1.25rem;
+}
+#logout-btn, #login-btn, #dashboard-btn {
+    color: var(--red);
+    font-size: 30px;
+    height: 100px;
+    line-height: 150px;
+    /* text-align: center;  */
+}
+
+/* Link Styling */
+a:link {
+    text-decoration: none;
+    color: var(--red);
+}
+
+/* .devs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 } */
+
+/* Footer */
+body {
+    height:100%;
+}
+.content-wrap {
+    min-height:100%;
+}
+main {
+    overflow:auto;
+    padding-bottom:150px;   /* Height of the footer */
+}
+footer {
+    background-color: var(--bright-gold); 
+    position: relative;
+    margin-top: -150px; /* negative value of footer height */
+    height: 150px;
+    clear:both;
+    padding-top:20px;
+} 
+
+/* footer {
+    background-color: rgb(241, 195, 117);
+    bottom: 0;
+    display: flex; 
+    justify-content: space-around;
+    height: 7rem;  
+    width: 100%;
+}     */
+
+
+/* SMARTPHONES PORTRAIT */
+/* @media only screen and (min-width: 535px) {
+    .image {
+        height: 100px;
+        width: 100%;
+        object-fit: contain
+    }
+    .image img {
+      max-width: 100%;
+      max-height: 80px;
+      margin-left: 50px;
+      display: block;
+    }
+    #logout-btn, #login-btn, #dashboard-btn {
+        color: var(--red);
+        font-size: 20px;
+        height: 100px;
+        line-height: 150px;
+        text-align: center; 
+    }
+} */
+/* SMARTPHONES LANDSCAPE */
+/* @media only screen and (min-width: 690px) {
+    .image img {
+        max-width: 100%;
+        max-height: 100px;
+        margin-left: 70px;
+        display: block;
+    }
+
+    #logout-btn, #login-btn, #dashboard-btn {
+        color: var(--red);
+        font-size: 30px;
+        height: 100px;
+        line-height: 150px;
+        text-align: center; 
+    }
+
+} */
+/* TABLETS PORTRAIT */
+/* @media only screen and (min-width: 768px) {
+    .image {
+        height: 100px;
+        width: 100%;
+        object-fit: contain
+    }
+    .image img {
+      max-width: 100%;
+      max-height: 100px;
+      margin-left: 110px;
+      display: block;
+    }
+    #logout-btn, #login-btn, #dashboard-btn {
+        color: var(--red);
+        font-size: 30px;
+        height: 100px;
+        line-height: 150px;
+        text-align: center; 
+    }
+    
+
+} */
+/* TABLET LANDSCAPE / DESKTOP */
+/* @media only screen and (min-width: 1024px) {
+    .image {
+        height: 100px;
+        width: 100%;
+        object-fit: contain
+    }
+    .image img {
+      max-width: 100%;
+      max-height: 100px;
+      margin: auto;
+      display: block;
+    }
+    #logout-btn, #login-btn, #dashboard-btn {
+        color: var(--red);
+        font-size: 30px;
+        height: 100px;
+        line-height: 150px;
+        text-align: center; 
+    }
+} */
+

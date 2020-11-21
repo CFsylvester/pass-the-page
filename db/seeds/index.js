@@ -2,7 +2,7 @@ const seedChapters = require('./chapter-seeds');
 const seedAuthors = require('./author-seeds');
 const seedStories = require('./story-seeds');
 
-const sequelize = require('../config/connection');
+const sequelize = require('../../config/connection');
 
 const seedAll = async () => {
     await sequelize.sync({ force: true });

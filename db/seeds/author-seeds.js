@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { Author } = require('../models');
+const { Author } = require('../../models');
 
 const authorData = [
     {
@@ -39,5 +39,5 @@ const authorData = [
     }
 ];
 
-const seedAuthors = () => Author.bulkCreate(authorData, {individualHooks: true});
+const seedAuthors = () => Author.bulkCreate(authorData, { individualHooks: true });
 module.exports = seedAuthors;

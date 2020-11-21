@@ -8,18 +8,16 @@ const userAuth = require('../utils/userAuth');
 router.get('/', (req, res) => {
     console.log('========= Homepage rendered =========');
     Story.findAll({
-        // where: {
-        //     completed: false
-        // },
-        // order: [['createdAt', 'DESC']],
-        attributes: [
-            'id',
-            'completed',
-            'story_title',
-            'story_text',
-            'author_id',
-            'created_at',
-        ],
+        limt: 6,
+        order: [['createdAt', 'DESC']],
+        // attributes: [
+        //     'id',
+        //     'completed',
+        //     'story_title',
+        //     'story_text',
+        //     'author_id',
+        //     'created_at',
+        // ],
         include: [
             {
                 model: Author,
@@ -39,7 +37,6 @@ router.get('/', (req, res) => {
             const stories = storyData.map(story => story.get({ plain: true }));
             res.render('homepage', {
                 stories,
-                // analyzeText, 
                 loggedIn: req.session.loggedIn
             });
         })

@@ -3,11 +3,11 @@ const { Story } = require('../../models');
 
 router.get('/', (req, res) => {
     Story.findAll()
-    .then(dbStoryData => res.json(dbStoryData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbStoryData => res.json(dbStoryData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.get('/:id', (req, res) => {
@@ -16,30 +16,31 @@ router.get('/:id', (req, res) => {
             id: req.params.id
         }
     })
-    .then(dbStoryData => {
-        if (!dbStoryData) {
-            res.status(404).json({ message: 'No story was found with this id!' });
-            return;
-        }
-        res.json(dbStoryData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbStoryData => {
+            if (!dbStoryData) {
+                res.status(404).json({ message: 'No story was found with this id!' });
+                return;
+            }
+            res.json(dbStoryData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.post('/', (req, res) => {
     Story.create({
         story_title: req.body.story_title,
         story_text: req.body.story_text,
-        author_id: req.body.author_id
+        genre: req.body.genre,
+        author_id: req.session.author_id
     })
-    .then(dbStoryData => res.json(dbStoryData))
-    .catch(err => {
-        console.log(err);
-        res.status(400).json(err);
-    });
+        .then(dbStoryData => res.json(dbStoryData))
+        .catch(err => {
+            console.log(err);
+            res.status(400).json(err);
+        });
 });
 
 router.put('/:id', (req, res) => {
@@ -48,22 +49,22 @@ router.put('/:id', (req, res) => {
             id: req.params.id
         }
     },
-    {
-        story_title: req.body.story_title,
-        story_text: req.body.story_text,
-    })
-    .then(dbStoryData => {
-        if (!dbStoryData) {
-            res.status(404).json({ message: 'No story was found with this id!' });
-            return;
-        }
-        res.json(dbStoryData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
-})
+        {
+            story_title: req.body.story_title,
+            story_text: req.body.story_text
+        })
+        .then(dbStoryData => {
+            if (!dbStoryData) {
+                res.status(404).json({ message: 'No story was found with this id!' });
+                return;
+            }
+            res.json(dbStoryData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 router.delete('/:id', (req, res) => {
     Story.destroy({
@@ -71,17 +72,17 @@ router.delete('/:id', (req, res) => {
             id: req.params.id
         }
     })
-    .then(dbStoryData => {
-        if (!dbStoryData) {
-            res.status(404).json({ message: 'No story was found with this id!' });
-            return;
-        }
-        res.json(dbStoryData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbStoryData => {
+            if (!dbStoryData) {
+                res.status(404).json({ message: 'No story was found with this id!' });
+                return;
+            }
+            res.json(dbStoryData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 module.exports = router;

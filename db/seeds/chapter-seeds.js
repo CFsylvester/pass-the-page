@@ -1,4 +1,4 @@
-const { Chapter } = require('../models');
+const { Chapter } = require('../../models');
 
 const chapterdata = [
     {
@@ -29,8 +29,7 @@ const chapterdata = [
         chapter_title: 'Love',
         chapter_text: 'Love Is The Death Of Duty.',
         author_id: 5,
-        story_id: 5,
-        completed: true
+        story_id: 5
     },
 ];
 

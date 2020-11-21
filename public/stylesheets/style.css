@@ -74,6 +74,11 @@ header {
     padding-bottom: 10px;
 }
 
+.signup-divider {
+    margin: 15px 0;
+    border-bottom: 1px solid var(--maroon);
+}
+
 .stories {
     display: flex;
     justify-content: center;

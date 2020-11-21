@@ -1,5 +1,5 @@
 <section class='signup-wrapper'>
-    <h2 class='login-heading input-center'>SIGNUP</h2>
+    <h2 class='login-heading red input-center'>SIGNUP</h2>
 
     <div class="form-wrapper">
         <form id='signup-form'>
@@ -19,16 +19,23 @@
                 <input type="password" class="form-control input input-border" id="signup-pw">
             </div>
 
+            <div class="signup-divider"></div>
+
+            <div class="col input-center">
+                <label for="signup-title" class='input-text'>Title (optional)</label>
+                <input type="text" class='form-control input input-border' id="signup-title">
+            </div>
+
+            <div class="col input-center">
+                <label for="signup-bio" class='input-text'>Biography (optional)</label>
+                <textarea class='form-control input input-border' name='signup-bio' id="signup-bio"></textarea>
+            </div>
+
             <div class='button-wrap'>
                 <div class="col">
-                    <button type='submit' class='button btn'>CREATE NEW ACCOUNT</button>
+                    <button type='submit' class='button btn'>CREATE YOUR ACCOUNT</button>
                 </div>
             </div>
-            {{!-- <div class='button-wrap'>
-                <div class="col spacer">
-                    <span>Already an author? <a href='/login'>Log in!</a></span>
-                </div>
-            </div> --}}
         </form>
     </div>
 </section>

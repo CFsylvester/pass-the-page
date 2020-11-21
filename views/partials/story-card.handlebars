@@ -1,13 +1,13 @@
 <div class="card mx-2 my-3">
-    <img id='image-{{id}}' class="card-img-top" src="/src/book.png" alt="Story Image">
+    <img id='image-{{id}}' class="card-img-top" src="/src/{{genre}}.png" alt="Story Image">
     <div class="card-body">
         <h6 class="card-title text-center">{{story_title}}</h6>
         <p id='story-{{id}}' class="card-text text-left truncate-overflow">{{story_text}}</p>
         <p>{{storyScore}}</p>
         {{#if completed}}
-        <a href="/read-story/{{id}}" class="btn">Read More</a>
+        <a href="/read-story/{{id}}" class="btn home-btn">Read More</a>
         {{else}}
-        <a href="/add-chapter/{{id}}" class="btn">Contribute Here</a>
+        <a href="/add-chapter/{{id}}" class="btn home-btn">Contribute Here</a>
         {{/if}}
     </div>
 </div>

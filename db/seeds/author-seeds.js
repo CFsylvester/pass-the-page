@@ -1,4 +1,3 @@
-const sequelize = require('../config/connection');
 const { Author } = require('../../models');
 
 const authorData = [

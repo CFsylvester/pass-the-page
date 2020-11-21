@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
         story_title: req.body.story_title,
         story_text: req.body.story_text,
         genre: req.body.genre,
-        author_id: req.body.author_id
+        author_id: req.session.author_id
     })
         .then(dbStoryData => res.json(dbStoryData))
         .catch(err => {

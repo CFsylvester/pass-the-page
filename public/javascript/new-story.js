@@ -4,6 +4,7 @@ async function addChapter(event) {
 
     const story_title = document.querySelector('#story-title').value.trim();
     const story_text = document.querySelector('#story-text').value.trim();
+    const genre = document.querySelector('#story-genre').value;
     const story_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
@@ -13,6 +14,7 @@ async function addChapter(event) {
         body: JSON.stringify({
             story_title,
             story_text,
+            genre,
             story_id
         }),
         headers: { 'Content-Type': 'application/json' }
@@ -50,7 +52,7 @@ function trendRequest() {
         method: 'GET',
         headers: headers
     }).then(function (twitterReport) {
-        return twitterReport.json()
+        return twitterReport.json();
     }).then(function (twitterReport) {
         let resultDisp = document.getElementById('inspoDisplay');
         resultDisp.innerHTML = "";
@@ -60,7 +62,7 @@ function trendRequest() {
             trendItem.textContent = twitterReport[0].trends[i].name;
             resultDisp.appendChild(trendItem);
         }
-    })
+    });
 };
 
 document.querySelector('#story-form').addEventListener('submit', addChapter);

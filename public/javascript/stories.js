@@ -1,31 +1,34 @@
-const analyzeText = require('../../utils/natural');
+// const analyzeText = require('../../utils/natural');
 
-const genreImg = document.getElementById(`#image-${id}`);
-const story = document.getElementById(`#story-${id}`).textContent;
+// const card = document.getElementById(`#card-${id}`);
+// const storyText = document.getElementById(`#story-${id}`).textContent;
 
-function sentiment(story) {
-    analyzeText(story);
 
-    console.log(value);
-    return value;
+
+function storyTone() {
+
+    const storyCards = document.getElementsByClassName('.card-body');
+    const sentValue = storyCards.getAttribute('data-sentiment');
+
+    console.log('storyCArds:', storyCards);
+
+    switch (sentValue) {
+        case (sentValue < -3):
+            storyText.classList.add('gradient1');
+            break;
+        case (sentValue > -3 && sentValue < -1):
+            storyText.classList.add('gradient2');
+            break;
+        case (sentValue > -1 && sentValue < 1):
+            storyText.classList.add('gradient3');
+            break;
+        case (sentValue > 1 && sentValue < 3):
+            storyText.classList.add('gradient4');
+            break;
+        case (sentValue > 3 && sentValue < 5):
+            storyText.classList.add('gradient5');
+            break;
+    }
 }
 
-
-
-switch (sentiment(story)) {
-    case (value < -3):
-        genreImg.setAttribute('src', '/src/adventure.png');
-        break;
-    case (value > -3 && value < -1):
-        genreImg.setAttribute('src', '/src/adventure.png');
-        break;
-    case (value > -1 && value < 1):
-        genreImg.setAttribute('src', '/src/adventure.png');
-        break;
-    case (value > 1 && value < 3):
-        genreImg.setAttribute('src', '/src/adventure.png');
-        break;
-    case (value > 3 && value < 5):
-        genreImg.setAttribute('src', '/src/adventure.png');
-        break;
-}
+storyTone();

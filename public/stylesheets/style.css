@@ -23,6 +23,26 @@
     color: var(--red)
 }
 
+.gradient1 {
+    background-image: linear-gradient(to bottom, #b03172, #f8d9ea)
+}
+
+.gradient2 {
+    background-image: linear-gradient(to bottom, #97233F, #f8d9ea)
+}
+
+.gradient3 {
+    background-image: linear-gradient(to bottom, #89CFF0, #f8d9ea)
+}
+
+.gradient4 {
+    background-image: linear-gradient(to bottom, #00BFFF, #f8d9ea)
+}
+
+.gradient5 {
+    background-image: linear-gradient(to bottom, #007FFF, #f8d9ea)
+}
+
 /* Navigation */
 header {
     background-color: var(--bright-gold);

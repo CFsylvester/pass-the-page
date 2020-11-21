@@ -3,7 +3,6 @@
     <div id='card-{{id}}' data-sentiment='{{storyScore}}' class="card-body">
         <h6 class="card-title text-center">{{story_title}}</h6>
         <p id=' story-{{id}}' class="card-text text-left truncate-overflow">{{story_text}}</p>
-        <p>{{storyScore}}</p>
         {{#if completed}}
         <a href="/read-story/{{id}}" class="btn home-btn">Read More</a>
         {{else}}
@@ -12,4 +11,4 @@
     </div>
 </div>
 
-{{!-- <script src='/javascript/stories.js'></script> --}}
+<script src='/javascript/stories.js'></script>

@@ -1,22 +1,13 @@
 <div class="row mt-5 mx-5">
-    <div class="col border-dark border-right text-center">
-        <h2 class="gold text-uppercase">ALL STORIES</h1>
-        <div class="row d-flex justify-content-center">
-            {{#each stories as |story|}}
-            {{#if completed}}
-                {{> story-card story}}
-            {{/if}}
-            {{/each}}
-        </div>
+    <div class="all col text-center">
+        <h1>ALL STORIES</h1>
+        <a class='btn more' href="/all-stories">MORE STORIES</a>
+        {{> stories }}
     </div>
-    <div class="col text-center">
-        <h2 class="maroon text-uppercase">OPEN STORIES</h1>
-        <div class="row d-flex justify-content-center">
-            {{#each stories as |story|}}
-            {{#unless completed}}
-                {{> story-card story}}
-            {{/unless}}
-            {{/each}}
-        </div>
+    <div class="border-dark border-right"></div>
+    <div class="open col text-center">
+        <h1>OPEN STORIES</h1>
+        <a class='btn more' href="/open-stories">MORE OPEN STORIES</a>
+        {{> open-stories }}
     </div>
 </div>

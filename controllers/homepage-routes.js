@@ -26,9 +26,9 @@ router.get('/', (req, res) => {
         .then(storyData => {
             const stories = storyData.map(story => story.get({ plain: true }));
             analyzeText(stories)
-                .then(analyzerData => {
+                .then(analyzedData => {
                     res.render('homepage', {
-                        stories: analyzerData,
+                        stories: analyzedData,
                         loggedIn: req.session.loggedIn
                     });
 
@@ -61,10 +61,13 @@ router.get('/all-stories', (req, res) => {
     })
         .then(storyData => {
             const stories = storyData.map(story => story.get({ plain: true }));
-            res.render('all-stories', {
-                stories,
-                loggedIn: req.session.loggedIn
-            });
+            analyzeText(stories)
+                .then(analyzedData => {
+                    res.render('all-stories', {
+                        stories: analyzedData,
+                        loggedIn: req.session.loggedIn
+                    });
+                });
         })
         .catch(err => {
             console.log(err);
@@ -76,7 +79,7 @@ router.get('/all-stories', (req, res) => {
 router.get('/open-stories', (req, res) => {
     Story.findAll({
         where: {
-            completed: false
+            completed: false || null
         },
         order: [['createdAt', 'DESC']],
         include: [
@@ -96,10 +99,13 @@ router.get('/open-stories', (req, res) => {
     })
         .then(storyData => {
             const stories = storyData.map(story => story.get({ plain: true }));
-            res.render('open-stories', {
-                stories,
-                loggedIn: req.session.loggedIn
-            });
+            analyzeText(stories)
+                .then(analyzedData => {
+                    res.render('open-stories', {
+                        stories: analyzedData,
+                        loggedIn: req.session.loggedIn
+                    });
+                });
         })
         .catch(err => {
             console.log(err);

@@ -1,8 +1,7 @@
 const router = require('express').Router();
-// const sequelize = require('../config/connection');
 const { Story, Author, Chapter } = require('../models');
 const userAuth = require('../utils/userAuth');
-// const analyzeText = require('../utils/natural');
+const analyzeText = require('../utils/natural');
 
 // Route to get stories for homepage
 router.get('/', (req, res) => {
@@ -26,10 +25,14 @@ router.get('/', (req, res) => {
     })
         .then(storyData => {
             const stories = storyData.map(story => story.get({ plain: true }));
-            res.render('homepage', {
-                stories,
-                loggedIn: req.session.loggedIn
-            });
+            analyzeText(stories)
+                .then(analyzerData => {
+                    res.render('homepage', {
+                        stories: analyzerData,
+                        loggedIn: req.session.loggedIn
+                    });
+
+                });
         })
         .catch(err => {
             console.log(err);
@@ -180,6 +183,8 @@ router.get('/read-story/:id', (req, res) => {
             if (storyData) {
                 const story = storyData.get({ plain: true });
                 console.log(story);
+                console.log('author', story.chapters[0].author);
+
                 res.render('read-story', { story, loggedIn: req.session.loggedIn });
             } else {
                 res.status(404).json({ message: "We couldn't find the story you requested." });

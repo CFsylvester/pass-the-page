@@ -11,7 +11,7 @@ This project was created and devleoped by
 
 ## Tools used for this project
 - HTML
-- CSS/ Bootstrap
+- CSS / Bootstrap
 - JavaScript
 - MySQL
 - Node.js

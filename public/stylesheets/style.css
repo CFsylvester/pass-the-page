@@ -23,6 +23,30 @@
     color: var(--red)
 }
 
+.gradient1 {
+    background-image: linear-gradient(to bottom, #b03172, #f8d9ea) !important;
+}
+
+.gradient2 {
+    background-image: linear-gradient(to bottom, #97233F, #f8d9ea) !important;
+}
+
+.gradient3 {
+    background-image: linear-gradient(to bottom, #9a4c5f, #f5eef2) !important;
+}
+
+.gradient4 {
+    background-image: linear-gradient(to bottom, #0a84bd, #ddebf2) !important;
+}
+
+.gradient5 {
+    background-image: linear-gradient(to bottom, #00BFFF, #bee2ee) !important;
+}
+
+.gradient6 {
+    background-image: linear-gradient(to bottom, #007FFF, #498490) !important;
+}
+
 /* Navigation */
 header {
     background-color: var(--bright-gold);
@@ -93,7 +117,7 @@ header {
 
 /*Story Card*/
 .card {
-    background-color: rgb(253, 251, 237);
+    /* background-color: rgb(253, 251, 237); */
     font-size: 13px;
     height: 22rem;
     width: 15rem;

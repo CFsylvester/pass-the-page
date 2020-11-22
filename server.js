@@ -7,20 +7,17 @@ const exphbs = require('express-handlebars');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const routes = require('./controllers');
-// const hbs = exphbs.create({ helpers });
 
 // Sets up the Express App
 // =============================================================
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// enable session and it should automatically expire if idle for 10 minutes with maxAge
+// Enable session
 const sess = {
     secret: 'frodo',
-    // cookie: { maxAge: 600000 },
     cookie: {},
     resave: false,
-    // rolling: true,
     saveUninitialized: false,
     store: new SequelizeStore({
         db: sequelize
@@ -33,12 +30,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session(sess));
 
 // Static directory
-// app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
+// Enable Handlebars as template engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-// app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Author, Story, Chapter } = require('../models');
 const userAuth = require('../utils/userAuth');
+const analyzeText = require('../utils/natural');
 
 // Render the dashboard of the current logged in user and display their info
 router.get('/', userAuth, (req, res) => {
@@ -39,15 +40,15 @@ router.get('/', userAuth, (req, res) => {
                 })
                     .then(storyData => {
                         const stories = storyData.map(story => story.get({ plain: true }));
-
-                        res.render('dashboard', {
-                            stories,
-                            author,
-                            loggedIn: req.session.loggedIn
-                        });
-
+                        analyzeText(stories)
+                            .then(analyzedData => {
+                                res.render('dashboard', {
+                                    author,
+                                    stories: analyzedData,
+                                    loggedIn: req.session.loggedIn
+                                });
+                            });
                     });
-
             } else {
                 res.status(404).json({ message: "We couldn't find your info." });
             }

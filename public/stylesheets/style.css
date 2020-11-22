@@ -8,8 +8,7 @@
 
 /* Effects Entire Html */
 * {
-    font-family: 'Goudy Bookletter 1911', serif;
-    
+    font-family: 'Goudy Bookletter 1911', serif; 
 }
 
 /* Color Classes */
@@ -23,12 +22,13 @@
     color: var(--red)
 }
 
+/* Story-card sentiment colors 97233F f8d9ea*/
 .gradient1 {
-    background-image: linear-gradient(to bottom, #b03172, #f8d9ea) !important;
+    background-image: linear-gradient(to bottom, #97233F, #a76a77) !important;
 }
 
 .gradient2 {
-    background-image: linear-gradient(to bottom, #97233F, #f8d9ea) !important;
+    background-image: linear-gradient(to bottom, #8a2a8a, #f8d9ea) !important;
 }
 
 .gradient3 {

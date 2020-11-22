@@ -31,7 +31,6 @@ router.get('/', (req, res) => {
                         stories: analyzedData,
                         loggedIn: req.session.loggedIn
                     });
-
                 });
         })
         .catch(err => {

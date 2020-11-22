@@ -33,15 +33,15 @@
 }
 
 .gradient3 {
-    background-image: linear-gradient(to bottom, #89CFF0, #f8d9ea) !important;
+    background-image: linear-gradient(to bottom, #ddebf2, #0a84bd) !important;
 }
 
 .gradient4 {
-    background-image: linear-gradient(to bottom, #00BFFF, #f8d9ea) !important;
+    background-image: linear-gradient(to bottom, #00BFFF, #bee2ee) !important;
 }
 
 .gradient5 {
-    background-image: linear-gradient(to bottom, #007FFF, #f8d9ea) !important;
+    background-image: linear-gradient(to bottom, #007FFF, #498490) !important;
 }
 
 /* Navigation */

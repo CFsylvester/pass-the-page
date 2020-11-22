@@ -28,19 +28,22 @@
 }
 
 .gradient2 {
-    z-index: 1000;
     background-image: linear-gradient(to bottom, #97233F, #f8d9ea) !important;
 }
 
 .gradient3 {
-    background-image: linear-gradient(to bottom, #ddebf2, #0a84bd) !important;
+    background-image: linear-gradient(to bottom, #9a4c5f, #f5eef2) !important;
 }
 
 .gradient4 {
-    background-image: linear-gradient(to bottom, #00BFFF, #bee2ee) !important;
+    background-image: linear-gradient(to bottom, #0a84bd, #ddebf2) !important;
 }
 
 .gradient5 {
+    background-image: linear-gradient(to bottom, #00BFFF, #bee2ee) !important;
+}
+
+.gradient6 {
     background-image: linear-gradient(to bottom, #007FFF, #498490) !important;
 }
 

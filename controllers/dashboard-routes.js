@@ -81,6 +81,7 @@ router.get('/edit-user/:id', userAuth, (req, res) => {
         });
 });
 
+// Route to create a new story
 router.get('/new-story', (req, res) => {
     res.render('new-story', { loggedIn: req.session.loggedIn });
 });

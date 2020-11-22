@@ -221,4 +221,42 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+// Route to view a user's profile
+router.get('/:username', (req, res) => {
+    Author.findOne({
+        where: {
+            username: req.params.username
+        }
+    })
+        .then(authorData => {
+            if (authorData) {
+                const author = authorData.get({ plain: true });
+                console.log('line 234', authorData);
+                Story.findAll({
+                    where: {
+                        author_id: authorData.id
+                    },
+                    order: [['created_at', 'DESC']],
+                })
+                    .then(storyData => {
+                        const stories = storyData.map(story => story.get({ plain: true }));
+                        analyzeText(stories)
+                            .then(analyzedData => {
+                                res.render('profile', {
+                                    author,
+                                    stories: analyzedData,
+                                    loggedIn: req.session.loggedIn
+                                });
+                            });
+                    });
+            } else {
+                res.status(404).json({ message: "We couldn't find your info." });
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 module.exports = router;

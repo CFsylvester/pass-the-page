@@ -222,7 +222,7 @@ router.get('/signup', (req, res) => {
 });
 
 // Route to view a user's profile
-router.get('/profile/:username', (req, res) => {
+router.get('/:username', (req, res) => {
     Author.findOne({
         where: {
             username: req.params.username
@@ -231,28 +231,12 @@ router.get('/profile/:username', (req, res) => {
         .then(authorData => {
             if (authorData) {
                 const author = authorData.get({ plain: true });
-
+                console.log('line 234', authorData);
                 Story.findAll({
                     where: {
-                        author_id: req.session.author_id
+                        author_id: authorData.id
                     },
                     order: [['created_at', 'DESC']],
-                    include: [
-                        {
-                            model: Author,
-                            attributes: ['id', 'username', 'title', 'bio', 'email']
-                        },
-                        {
-                            model: Chapter,
-                            attributes: ['chapter_text'],
-                            include: [
-                                {
-                                    model: Author,
-                                    attributes: ['username']
-                                }
-                            ]
-                        }
-                    ]
                 })
                     .then(storyData => {
                         const stories = storyData.map(story => story.get({ plain: true }));

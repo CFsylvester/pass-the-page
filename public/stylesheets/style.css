@@ -185,6 +185,16 @@ a:link {
     color: var(--red);
 }
 
+.profile-link {
+    text-decoration: none;
+    color: var(--red);
+}
+
+.profile-link:hover {
+    text-decoration: none;
+    color: var(--maroon);
+}
+
 /* .devs {
     display: flex;
     flex-direction: column;

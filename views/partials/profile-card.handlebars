@@ -1,12 +1,12 @@
-<div class="col profile rounded mr-5 py-3">
+<div class="col profile rounded gold mr-5 py-3">
     <div class="row">
         <div class="col">
-            <h2>{{author.username}} </h2>
+            <h2 class='text-uppercase'>{{author.username}} </h2>
             <p>{{author.email}}</p>
             <p class="border-dark border-bottom">
-                {{!-- <a href="/dashboard/edit-user/{{author.id}}"> 
-                    Update your info
-                </a> --}}
+                <a class='btn' href="/dashboard/edit-user/{{author.id}}">
+                    UPDATE YOUR INFO
+                </a>
             </p>
         </div>
     </div>

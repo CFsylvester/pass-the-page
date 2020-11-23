@@ -1,192 +1,113 @@
+/* Root Colors */
 :root {
-    --bright-red: #bf0808;
-    --dark-red:  #790404; 
+    --red: #bf0808;
+    --maroon:  #790404; 
     --dark-gold: #8b6c38;
-    --bright-gold: #bf9650;  
+    --bright-gold: rgb(241, 195, 117);  
 }
 
+/* Effects Entire Html */
 * {
-    font-family: 'Goudy Bookletter 1911', serif;
+    font-family: 'Goudy Bookletter 1911', serif; 
 }
 
-p {
-    color: var(--dark-gold)
+/* Color Classes */
+.gold {
+    color: var(--dark-gold); 
+}
+.maroon {
+    color: var(--maroon); 
+}
+.red {
+    color: var(--red)
 }
 
-.chapter-title {
-    color: var(--bright-red)
+/* Story-card sentiment colors 97233F f8d9ea*/
+.gradient1 {
+    background-image: linear-gradient(to bottom, #97233F, #a76a77) !important;
 }
 
-html {
-    line-height: var(--lh);
-    position: relative;
-    min-height: 100vh;
+.gradient2 {
+    background-image: linear-gradient(to bottom, #8a2a8a, #f8d9ea) !important;
 }
 
-.truncate-overflow {   
-    display: -webkit-box;   
-    -webkit-line-clamp: 5;   
-    -webkit-box-orient: vertical;     
-    overflow: hidden;
+.gradient3 {
+    background-image: linear-gradient(to bottom, #9a4c5f, #f5eef2) !important;
 }
 
-/* .page-container {
-    position: relative;
-    min-height: 100vh;
-    font-family: 'Goudy Bookletter 1911', serif;
-} */
+.gradient4 {
+    background-image: linear-gradient(to bottom, #0a84bd, #ddebf2) !important;
+}
 
+.gradient5 {
+    background-image: linear-gradient(to bottom, #00BFFF, #bee2ee) !important;
+}
+
+.gradient6 {
+    background-image: linear-gradient(to bottom, #007FFF, #498490) !important;
+}
+
+/* Navigation */
 header {
-    background-color: rgb(241, 195, 117);
-}
-
-.nav-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.login-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.story-text {
-    height: 100px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-h1 {
-    font-size: 25px;
-}
-
-.all, .inspo {
-    color: #bf9650;
-}
-
-.open {
-    color: var(--dark-red);
-}
-
-.card {
-    color: black;
-    font-size: 13px;
-    height: 18rem;
-    width: 12rem;
-    border: none
-}
-
-.card-img-top {
-    height: 6rem;
-    width: 12rem;
-}
-
-.story-author {
-    color: var(--dark-gold)
-}
-
-
-.btn {
-    background-color: var(--dark-red);
-    color: var(--bright-gold);
-    font-size: 1.25rem;
-}
-
-.home-btn {
-    font-size: 2vh;
-}
-
-.dashboard {
-    color: #bf0808;
-}
-
-a:link {
-    text-decoration: none;
-}
-
-ul {
-    list-style:none; 
-    margin: 0; 
-    padding: 0;
-    color: var(--dark-red);
-}
-
-li {
-    margin-top: 1rem;
-}
-
-li:before { 
-    content: '#'; 
-    
-}
-
-.profile {
-    color: #bf9650;
-    background-color: var(--dark-red);
-}
-
-textarea {
+    background-color: var(--bright-gold);
+    height: 175px;
     width: 100%;
-    height: 200px;
 }
-
-.new-story{
-    color: var(--bright-red);
-    font-size: 50px;
+.image {
+    max-width: 30vh;
 }
-
+.navbar {
+    background-color: var(--bright-gold);
+    height: 40px;
+}
+#logout-btn, #login-btn, #dashboard-btn {
+    color: var(--red);
+    font-size: 30px;
+    /* height: 100px; */
+    /* line-height: 150px; */
+    /* text-align: center;  */
+}
+/* Main Content */
+body {
+    height:100%;
+}
 main {
-    padding-bottom: 14rem;
+    /* overflow:auto; */
+    padding-bottom:50px;   
+}
+.wrapper {
+    position: relative;
+    min-height: 100vh;
+}
+.targeted {
+    margin-bottom: 100px;
 }
 
-footer {
-    background-color: rgb(241, 195, 117);
-    bottom: 0;
-    position: inherit;
-    height: 7rem;   /* Footer height */
-    width: 100%;
-} 
-
-.footer{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.devs {
+/* Login/SignUp Styling */
+.login-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
+.login-heading {
+    font-size: 4rem;
+}
 .signup-wrapper, .login-wrapper {
     margin: 5% 30%;
     /* border: 0.25px lightgray solid;
     border-radius: 5px; */
 }
-
-.login-heading {
-    font-size: 4rem;
-    color: var(--dark-red);
-}
-
 .button-wrap {
     text-align: center;
     margin-top: 15px;
 }
-
 .input-text {
-    color: var(--dark-red);
+    color: var(--maroon);
     font-size: 1.25rem;
 }
-
 .input-border {
-    border: 2px solid var(--dark-red);
+    border: 2px solid var(--maroon);
 }
-
 .input-center {
     display: flex;
     flex-direction: column;
@@ -194,36 +115,103 @@ footer {
     align-items: center;
     padding-bottom: 10px;
 }
-
-.spacer {
-    margin-top: 10px;
+.signup-divider {
+    margin: 15px 0;
+    border-bottom: 1px solid var(--maroon);
 }
 
-/* 
-.signup-wrapper, .login-wrapper, .dashboard {
-    margin: 5% 30%;
-    border: 0.25px lightgray solid;
-    border-radius: 5px;
-} */
-
-/*
-.form-wrapper {
-    display: flex;
-    justify-content: center;
-    margin: 15px;
+.more {
+    font-size: 15px;
 }
 
-.bio-input {
+/*Story Card*/
+.card {
+    /* background-color: rgb(253, 251, 237); */
+    font-size: 13px;
+    height: 22rem;
+    width: 15rem;
+    border-style: solid; 
+    border-width: 1px;
+    border-color: black;
+}
+
+/* Story-card text overflow */
+.truncate-overflow {   
+    display: -webkit-box;   
+    -webkit-line-clamp: 5;   
+    -webkit-box-orient: vertical;     
+    overflow: hidden;
+}
+.story-text {
+    height: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Add Chapter/Story */
+textarea {
     width: 100%;
-    height: 25vh;
+    height: 200px;
 }
 
-.button {
-    width: 50%;
+/* Twitter HashTags */
+ul {
+    list-style:none; 
+    margin: 0; 
+    padding: 0;
+}
+li {
+    margin-top: 1rem;
+}
+li:before { 
+    content: '#'; 
 }
 
-.button-wrap {
-    text-align: center;
-    margin-top: 15px;
+/* User Profile */
+.profile {
+    background-color: var(--maroon);
 }
-} */
+
+/* Button Styling */
+.btn {
+    background-color: var(--maroon);
+    color: var(--dark-gold);
+    font-size: 1.25rem;
+}
+
+/* Link Styling */
+a:link {
+    text-decoration: none;
+    color: var(--red);
+}
+
+.profile-link {
+    text-decoration: none;
+    color: var(--red);
+}
+
+.profile-link:hover {
+    text-decoration: none;
+    color: var(--maroon);
+}
+
+/* Footer */
+footer {
+    background-color: var(--bright-gold);
+    width: 100%;
+    margin-bottom: 0; 
+    position: absolute;
+    bottom: 0;
+} 
+.devs {
+    color: var(--maroon);
+    font-size: 15px; 
+}
+.devs a {
+    color: var(--red)
+}
+i {
+    color: var(--maroon); 
+    font-size: 70px;
+}

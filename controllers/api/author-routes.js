@@ -96,13 +96,14 @@ router.post('/login', (req, res) => {
 });
 
 // Log out user
-router.post('/logout', (req, res) => {
+router.post('/logout', userAuth, (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
             console.log('Logged out!');
             res.status(204).end();
         });
     } else {
+        console.log('logout test');
         res.status(404).end();
     }
 });
@@ -110,13 +111,13 @@ router.post('/logout', (req, res) => {
 // Update a user's info
 router.put('/:id', (req, res) => {
     Author.update(req.body, {
-        individualHooks: true,
         where: {
             id: req.params.id
         }
     })
         .then(authorData => {
             if (!authorData) {
+                console.log('author update:', authorData);
                 res.status(404).json({ message: "We couldn't find that author." });
                 return;
             }

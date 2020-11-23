@@ -5,80 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pass the Page</title>
+    <script src="https://kit.fontawesome.com/5ed544d1c5.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
-    <header>
-        <nav class="container">
-            <div class="row nav-wrap">
-                {{#if loggedIn}}
-                <div>
-                    <a href="/dashboard"><button class='btn btn-primary'>Dashboard</button></a>
-                </div>
-                {{else}}
-                <div>
-                    {{!-- empty --}}
-                </div>
-                {{/if}}
-                <div>
-                    <a href="/">
-                        <img src='/src/logo.png' width="400" height="150" alt="" loading="lazy">
-                    </a>
-                </div>
-                {{#if loggedIn}}
-                <div class="login-wrap">
-
-                    <div>
-                        <a href="/login"><button id='logout-btn' class='btn btn-danger'>Logout</button></a>
-                    </div>
-                </div>
-                {{else}}
-                {{!-- <div>
-                    <a href="/signup"><button class='btn btn-success'>Create Account</button></a>
-                </div> --}}
-                <div>
-                    <a href="/login">
-                        <button class='btn'>Login</button>
-                    </a>
-                </div>
-                {{/if}}
-            </div>
-        </nav>
-    </header>
-    <main>
-        {{{ body }}}
-    </main>
-
-    <footer>
-        <div class="footer row py-1 ml-1">
+    <div class="wrapper">
+        <header>
             <div>
-                <a href="/">
-                    <img src='/src/logo.png' width="250" height="100" alt="" loading="lazy">
-                </a>
+                <div class="text-center">
+                    <a class="image" href="/">
+                        <img  class="img-fluid" src='/src/logo.png' alt="" loading="lazy">
+                    </a>
+                </div>
+                <nav class="navbar">
+                    <p>
+                        {{#if loggedIn}}
+                        <div class="mr-auto">
+                            <a href="/dashboard" id='dashboard-btn'>Dashboard</a>
+                        </div>
+                        {{else}}
+                        <div>
+                        </div>
+                        {{/if}}
+                    </p>
+                    <div class="">
+                        {{#if loggedIn}}
+                        {{!-- <div class="login-wrap"> --}}
+                        <a href='/' id='logout-btn'>Logout</a>
+                        {{!-- </div> --}}
+                        {{else}}
+                        <a href="/login" id='login-btn'>Login</a>
+                        {{/if}}
+                    </div>
+                </nav>
             </div>
-            <div class='devs'>
-                <p class="text-uppercase">
-                    Developed By:
-                </p>
-                <p>
-                    <a href="https://www.w3schools.com" target="_blank">
+        </header>
+        <main class="">
+            {{{ body }}}
+        </main>
+        <footer>
+            <div class="row text-uppercase pl-3">
+                <a class="ml-3 my-auto" href="https://github.com/CFsylvester/pass-the-page" target="_blank">
+                    <i class="fab fa-github-square"></i>
+                </a>
+                <p class="devs my-auto ml-2">
+                    Developed By: <br>
+                    <a href="https://cfsylvester.github.io/clairesylvester.github.io/" target="_blank">
                         Claire Sylvester,
                     </a>
-                    <a href="https://www.w3schools.com" target="_blank">
+                    <a href="https://www.linkedin.com/mwlite/in/curtis-henderson-b22a0271" target="_blank">
                         Curtis Henderson,
                     </a>
-                    <a href="https://www.w3schools.com" target="_blank">
-                        & Tom Chestnut
+                    &
+                    <a href="https://tchestnut85.github.io/" target="_blank">
+                        Tom Chestnut
                     </a>
                 </p>
             </div>
-        </div>
-    </footer>
-
+        </footer>
+    </div>
     {{#if loggedIn}}
     <script src='/javascript/logout.js'></script>
     {{/if}}

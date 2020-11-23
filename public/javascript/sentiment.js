@@ -1,0 +1,25 @@
+function storyTone() {
+
+    const storyCards = document.querySelectorAll('.card-body');
+
+    for (let i = 0; i < storyCards.length; i++) {
+        const story = storyCards[i];
+        const sentValue = story.getAttribute('data-sentiment');
+
+        if (sentValue <= -2) {
+            story.classList.add('gradient1');
+        } else if (sentValue > -2 && sentValue <= -0.3) {
+            story.classList.add('gradient2');
+        } else if (sentValue > -0.3 && sentValue <= 0) {
+            story.classList.add('gradient3');
+        } else if (sentValue > 0 && sentValue <= 1) {
+            story.classList.add('gradient4');
+        } else if (sentValue > 1 && sentValue <= 3) {
+            story.classList.add('gradient5');
+        } else if (sentValue > 3) {
+            story.classList.add('gradient6');
+        }
+    }
+}
+
+storyTone();

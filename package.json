@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "nodemon server.js",
     "test": "jest",
-    "seeds": "node seeds/index.js",
+    "seeds": "node db/seeds/index.js",
     "start": "node server.js"
   },
   "repository": {

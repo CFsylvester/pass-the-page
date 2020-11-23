@@ -29,8 +29,13 @@ Story.init(
                 len: [1]
             }
         },
+        genre: {
+            type: DataTypes.TEXT('tiny'),
+            allowNull: false
+        },
         author_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'author',
                 key: 'id'

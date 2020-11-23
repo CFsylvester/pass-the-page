@@ -1,17 +1,16 @@
-<div class="container mt-4">
+<div class="container mt-5 pt-3 targeted">
     <div class="container text-center text-uppercase">
-        <h1 class="new-story">{{story.story_title}}</h1>
-        <h4 class="story-author">Original Author: {{story.author.username}} </h4>
+        <h1 class="new-story red">{{story.story_title}}</h1>
+        <h4 class="story-author gold">Original Author: <a class='profile-link'
+                href="/{{story.author.username}}">{{story.author.username}}</a>
+        </h4>
     </div>
-    <div class="container text-left mt-5">
-        <p>
+    <div class="container border-top text-left pt-4">
+        <p class="gold border-bottom pb-4">
             {{story.story_text}}
         </p>
-        <div class="chapter my-3">
-            {{#each story.chapters}}
-            <h4 class="text-center chapter-title"> Chapter: "{{chapter_title}}" </h4>
-            <p> {{chapter_text}}</p>
-            {{/each}}
-        </div>
+        {{#each story.chapters}}
+        {{>story-chapter}}
+        {{/each}}
     </div>
 </div>

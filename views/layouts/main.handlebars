@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pass the Page</title>
+    <script src="https://kit.fontawesome.com/5ed544d1c5.js" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
@@ -14,68 +15,58 @@
 </head>
 
 <body>
-    <div class="">
+    <div class="wrapper">
         <header>
-            <nav>
-                <div class="row justify-content-center">
-                    <div class="col-1 mr-4">
+            <div>
+                <div class="text-center">
+                    <a class="image" href="/">
+                        <img  class="img-fluid" src='/src/logo.png' alt="" loading="lazy">
+                    </a>
+                </div>
+                <nav class="navbar">
+                    <p>
                         {{#if loggedIn}}
-                        <div class="">
+                        <div class="mr-auto">
                             <a href="/dashboard" id='dashboard-btn'>Dashboard</a>
                         </div>
                         {{else}}
                         <div>
                         </div>
                         {{/if}}
-                    </div>
-                    <div class="col-8">
-                        <a href="/" class="image">
-                            <img src='/src/logo.png' alt="" loading="lazy">
-                        </a>
-                    </div>
-                    <div class="col-1">
+                    </p>
+                    <div class="">
                         {{#if loggedIn}}
-                        <div class="login-wrap">
-
-                            <div>
-                                <a href='/' id='logout-btn'>Logout</a>
-                            </div>
-                        </div>
+                        {{!-- <div class="login-wrap"> --}}
+                        <a href='/' id='logout-btn'>Logout</a>
+                        {{!-- </div> --}}
                         {{else}}
-                        <div>
-                            <a href="/login" id='login-btn'>Login</a>
-                        </div>
+                        <a href="/login" id='login-btn'>Login</a>
                         {{/if}}
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </header>
-        <main class="mb-5">
+        <main class="">
             {{{ body }}}
         </main>
         <footer>
-            <div class="row py-1 ml-1">
-                <div>
-                    <a href="/">
-                        <img src='/src/logo.png' width="250" height="100" alt="" loading="lazy">
+            <div class="row text-uppercase pl-3">
+                <a class="ml-3 my-auto" href="https://github.com/CFsylvester/pass-the-page" target="_blank">
+                    <i class="fab fa-github-square"></i>
+                </a>
+                <p class="devs my-auto ml-2">
+                    Developed By: <br>
+                    <a href="https://cfsylvester.github.io/clairesylvester.github.io/" target="_blank">
+                        Claire Sylvester,
                     </a>
-                </div>
-                <div class='devs'>
-                    <p class="text-uppercase">
-                        Developed By:
-                    </p>
-                    <p>
-                        <a href="https://www.w3schools.com" target="_blank">
-                            Claire Sylvester,
-                        </a>
-                        <a href="https://www.w3schools.com" target="_blank">
-                            Curtis Henderson,
-                        </a>
-                        <a href="https://www.w3schools.com" target="_blank">
-                            & Tom Chestnut
-                        </a>
-                    </p>
-                </div>
+                    <a href="https://www.linkedin.com/mwlite/in/curtis-henderson-b22a0271" target="_blank">
+                        Curtis Henderson,
+                    </a>
+                    &
+                    <a href="https://tchestnut85.github.io/" target="_blank">
+                        Tom Chestnut
+                    </a>
+                </p>
             </div>
         </footer>
     </div>

@@ -31,6 +31,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     Story.create({
+        completed: 0, 
         story_title: req.body.story_title,
         story_text: req.body.story_text,
         genre: req.body.genre,
@@ -44,17 +45,11 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    Story.update({
+    Story.update(req.body, {
         where: {
             id: req.params.id
         }
-    },
-        {
-            completed: req.body.completed,
-            story_title: req.body.story_title,
-            story_text: req.body.story_text
-            
-        })
+    })
         .then(dbStoryData => {
             if (!dbStoryData) {
                 res.status(404).json({ message: 'No story was found with this id!' });

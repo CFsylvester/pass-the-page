@@ -22,32 +22,33 @@ async function addChapter(event) {
         headers: { 'Content-Type': 'application/json' }
     });
 
-    // if (completed.checked == true){
-    //     // var completed = 1
-    //     const response2 = await fetch(`/api/stories/${id}`, {
-    //         method: 'PUT',
-    //         body: JSON.stringify({
-    //             // id,
-    //             completed
-    //         }),
-    //         headers: { 'Content-Type': 'application/json' }
-    //     });
-    //     if (response2.ok) {
-    //         console.log('true');
-    //     } else {
-    //         console.log(response2);
-    //         alert(response2.statusText);
-    //     }
-    // } else {
-    //     console.log('false');
-    // }
- 
-    if (response.ok) {
-        document.location.replace('/');
+    if (completed.checked == true){
+        // var completed = 1
+        console.log("anything you want")
+        const response2 = await fetch(`/api/stories/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                // id,
+                completed: "1"
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        if (response2.ok) {
+            console.log('true');
+        } else {
+            console.log(response2);
+            alert(response2.statusText);
+        }
     } else {
-        console.log(response.statusText);
-        alert(response.statusText);
+        console.log('false');
     }
+ 
+    // if (response.ok) {
+    //     document.location.replace('/');
+    // } else {
+    //     console.log(response.statusText);
+    //     alert(response.statusText);
+    // }
 }
 
 

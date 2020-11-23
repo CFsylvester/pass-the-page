@@ -12,6 +12,7 @@ async function addChapter(event) {
     const response = await fetch('/api/stories', {
         method: 'POST',
         body: JSON.stringify({
+            completed: 0, 
             story_title,
             story_text,
             genre,

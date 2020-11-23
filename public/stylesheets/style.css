@@ -26,23 +26,41 @@
 /* Navigation */
 header {
     background-color: var(--bright-gold);
-    height: 100px;
+    height: 175px;
     width: 100%;
 }
 .image {
-    height: 100px;
-    width: 100%;
-    object-fit: contain
+    max-width: 30vh;
 }
-.image img {
-  max-width: 100%;
-  max-height: 100px;
-  margin: auto;
-  display: block;
+.navbar {
+    background-color: var(--bright-gold);
+    height: 40px;
+}
+#logout-btn, #login-btn, #dashboard-btn {
+    color: var(--red);
+    font-size: 30px;
+    /* height: 100px; */
+    /* line-height: 150px; */
+    /* text-align: center;  */
+}
+/* Main Content */
+body {
+    height:100%;
+}
+main {
+    /* overflow:auto; */
+    padding-bottom:50px;   
+}
+.wrapper {
+    position: relative;
+    min-height: 100vh;
+}
+.targeted {
+    margin-bottom: 100px;
 }
 
 /* Login/SignUp Styling */
-.login-wrap {
+.login-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,18 +91,9 @@ header {
     align-items: center;
     padding-bottom: 10px;
 }
-
 .signup-divider {
     margin: 15px 0;
     border-bottom: 1px solid var(--maroon);
-}
-
-.stories {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
 }
 
 .more {
@@ -109,7 +118,6 @@ header {
     -webkit-box-orient: vertical;     
     overflow: hidden;
 }
-
 .story-text {
     height: 100px;
     white-space: nowrap;
@@ -147,13 +155,6 @@ li:before {
     color: var(--dark-gold);
     font-size: 1.25rem;
 }
-#logout-btn, #login-btn, #dashboard-btn {
-    color: var(--red);
-    font-size: 30px;
-    height: 100px;
-    line-height: 150px;
-    /* text-align: center;  */
-}
 
 /* Link Styling */
 a:link {
@@ -161,41 +162,25 @@ a:link {
     color: var(--red);
 }
 
-/* .devs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
-
 /* Footer */
-body {
-    height:100%;
-}
-.content-wrap {
-    min-height:100%;
-}
-main {
-    overflow:auto;
-    padding-bottom:150px;   /* Height of the footer */
-}
 footer {
-    background-color: var(--bright-gold); 
-    position: relative;
-    margin-top: -150px; /* negative value of footer height */
-    height: 150px;
-    clear:both;
-    padding-top:20px;
-} 
-
-/* footer {
-    background-color: rgb(241, 195, 117);
-    bottom: 0;
-    display: flex; 
-    justify-content: space-around;
-    height: 7rem;  
+    background-color: var(--bright-gold);
     width: 100%;
-}     */
-
+    margin-bottom: 0; 
+    position: absolute;
+    bottom: 0;
+} 
+.devs {
+    color: var(--maroon);
+    font-size: 15px; 
+}
+.devs a {
+    color: var(--red)
+}
+i {
+    color: var(--maroon); 
+    font-size: 70px;
+}
 
 /* SMARTPHONES PORTRAIT */
 /* @media only screen and (min-width: 535px) {

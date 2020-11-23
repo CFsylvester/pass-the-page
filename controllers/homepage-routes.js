@@ -78,7 +78,7 @@ router.get('/all-stories', (req, res) => {
 router.get('/open-stories', (req, res) => {
     Story.findAll({
         where: {
-            completed: false
+            completed: false || null
         },
         order: [['createdAt', 'DESC']],
         include: [
@@ -119,8 +119,8 @@ router.get('/add-chapter/:id', userAuth, (req, res) => {
             id: req.params.id
         },
         attributes: [
-            'completed', 
             'id',
+            'completed',
             'story_title',
             'story_text',
             'author_id',
@@ -143,7 +143,6 @@ router.get('/add-chapter/:id', userAuth, (req, res) => {
         .then(storyData => {
             if (storyData) {
                 const story = storyData.get({ plain: true });
-                console.log(story);
                 res.render('add-chapter', { story, loggedIn: req.session.loggedIn });
             } else {
                 res.status(404).json({ message: "We couldn't find the story you requested." });
@@ -176,7 +175,7 @@ router.get('/read-story/:id', (req, res) => {
             },
             {
                 model: Chapter,
-                attributes: ['id', 'chapter_title', 'chapter_text', 'author_id', 'created_at'],
+                attributes: ['chapter_title', 'chapter_text', 'author_id', 'created_at'],
                 include: {
                     model: Author,
                     attributes: ['id', 'username']
@@ -187,9 +186,6 @@ router.get('/read-story/:id', (req, res) => {
         .then(storyData => {
             if (storyData) {
                 const story = storyData.get({ plain: true });
-                console.log(story.chapter);
-                // console.log('author', story.chapters[0].author);
-                
                 res.render('read-story', { story, loggedIn: req.session.loggedIn });
             } else {
                 res.status(404).json({ message: "We couldn't find the story you requested." });
@@ -231,7 +227,6 @@ router.get('/:username', (req, res) => {
         .then(authorData => {
             if (authorData) {
                 const author = authorData.get({ plain: true });
-                console.log('line 234', authorData);
                 Story.findAll({
                     where: {
                         author_id: authorData.id

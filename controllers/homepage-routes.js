@@ -78,7 +78,7 @@ router.get('/all-stories', (req, res) => {
 router.get('/open-stories', (req, res) => {
     Story.findAll({
         where: {
-            completed: false || null
+            completed: false
         },
         order: [['createdAt', 'DESC']],
         include: [

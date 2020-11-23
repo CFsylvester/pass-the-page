@@ -11,7 +11,7 @@ This project was created and devleoped by
 
 ## Tools used for this project
 - HTML
-- CSS/ Bootstrap
+- CSS / Bootstrap
 - JavaScript
 - MySQL
 - Node.js
@@ -21,7 +21,6 @@ This project was created and devleoped by
 - Natural npm
 
 ![Pass the Page Logo](https://github.com/CFsylvester/pass-the-page/blob/main/public/src/logo.png)
-
 
 ## Objective
 1.	Create a functional application with a polished UI
@@ -35,6 +34,17 @@ b.	Allow users to update or delete their contributions
 
 ## Description/Usage: 
 Pass the Page allows users to create stories from all types of genres and to collaborate with other users to write the next hit novel safely from home!
+
+### Screenshots:
+
+##### Login
+![Pass the Page Login](/public/images/screenshot1.JPG)
+
+##### User Dashboard
+![Pass the Page User Dashboard](/public/images/screenshot2.JPG)
+
+##### Homepage
+![Pass the Page Homepage](/public/images/screenshot3.JPG)
 
 
 ## Approach

@@ -1,8 +1,7 @@
 const router = require('express').Router();
-// const sequelize = require('../config/connection');
 const { Story, Author, Chapter } = require('../models');
 const userAuth = require('../utils/userAuth');
-// const analyzeText = require('../utils/natural');
+const analyzeText = require('../utils/natural');
 
 // Route to get stories for homepage
 router.get('/', (req, res) => {
@@ -26,10 +25,13 @@ router.get('/', (req, res) => {
     })
         .then(storyData => {
             const stories = storyData.map(story => story.get({ plain: true }));
-            res.render('homepage', {
-                stories,
-                loggedIn: req.session.loggedIn
-            });
+            analyzeText(stories)
+                .then(analyzedData => {
+                    res.render('homepage', {
+                        stories: analyzedData,
+                        loggedIn: req.session.loggedIn
+                    });
+                });
         })
         .catch(err => {
             console.log(err);
@@ -58,10 +60,13 @@ router.get('/all-stories', (req, res) => {
     })
         .then(storyData => {
             const stories = storyData.map(story => story.get({ plain: true }));
-            res.render('all-stories', {
-                stories,
-                loggedIn: req.session.loggedIn
-            });
+            analyzeText(stories)
+                .then(analyzedData => {
+                    res.render('all-stories', {
+                        stories: analyzedData,
+                        loggedIn: req.session.loggedIn
+                    });
+                });
         })
         .catch(err => {
             console.log(err);
@@ -93,10 +98,13 @@ router.get('/open-stories', (req, res) => {
     })
         .then(storyData => {
             const stories = storyData.map(story => story.get({ plain: true }));
-            res.render('open-stories', {
-                stories,
-                loggedIn: req.session.loggedIn
-            });
+            analyzeText(stories)
+                .then(analyzedData => {
+                    res.render('open-stories', {
+                        stories: analyzedData,
+                        loggedIn: req.session.loggedIn
+                    });
+                });
         })
         .catch(err => {
             console.log(err);
@@ -168,7 +176,7 @@ router.get('/read-story/:id', (req, res) => {
             },
             {
                 model: Chapter,
-                attributes: ['chapter_title', 'chapter_text', 'author_id', 'created_at'],
+                attributes: ['id', 'chapter_title', 'chapter_text', 'author_id', 'created_at'],
                 include: {
                     model: Author,
                     attributes: ['id', 'username']
@@ -179,7 +187,9 @@ router.get('/read-story/:id', (req, res) => {
         .then(storyData => {
             if (storyData) {
                 const story = storyData.get({ plain: true });
-                console.log(story);
+                console.log(story.chapter);
+                // console.log('author', story.chapters[0].author);
+                
                 res.render('read-story', { story, loggedIn: req.session.loggedIn });
             } else {
                 res.status(404).json({ message: "We couldn't find the story you requested." });
@@ -209,6 +219,44 @@ router.get('/signup', (req, res) => {
         return;
     }
     res.render('signup');
+});
+
+// Route to view a user's profile
+router.get('/:username', (req, res) => {
+    Author.findOne({
+        where: {
+            username: req.params.username
+        }
+    })
+        .then(authorData => {
+            if (authorData) {
+                const author = authorData.get({ plain: true });
+                console.log('line 234', authorData);
+                Story.findAll({
+                    where: {
+                        author_id: authorData.id
+                    },
+                    order: [['created_at', 'DESC']],
+                })
+                    .then(storyData => {
+                        const stories = storyData.map(story => story.get({ plain: true }));
+                        analyzeText(stories)
+                            .then(analyzedData => {
+                                res.render('profile', {
+                                    author,
+                                    stories: analyzedData,
+                                    loggedIn: req.session.loggedIn
+                                });
+                            });
+                    });
+            } else {
+                res.status(404).json({ message: "We couldn't find your info." });
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 module.exports = router;

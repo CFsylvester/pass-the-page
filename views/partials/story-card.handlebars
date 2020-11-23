@@ -1,8 +1,8 @@
 <div class="card mx-2 my-3">
-    <img class="card-img-top" src="/src/{{genre}}.png" alt="Story Image">
-    <div class="card-body">
+    <img id='image-{{id}}' class="card-img-top" src="/src/{{genre}}.png" alt="Story Image">
+    <div id='card-{{id}}' data-sentiment='{{storyScore}}' class="card-body">
         <h6 class="card-title text-center">{{story_title}}</h6>
-        <p class="card-text text-left truncate-overflow">{{story_text}}</p>
+        <p id=' story-{{id}}' class="card-text text-left truncate-overflow">{{story_text}}</p>
         {{#if completed}}
         <a href="/read-story/{{id}}" class="btn home-btn">Read More</a>
         {{else}}
@@ -10,3 +10,5 @@
         {{/if}}
     </div>
 </div>
+
+<script src='/javascript/sentiment.js'></script>

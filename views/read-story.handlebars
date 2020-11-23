@@ -1,7 +1,9 @@
 <div class="container mt-5 pt-3 targeted">
     <div class="container text-center text-uppercase">
         <h1 class="new-story red">{{story.story_title}}</h1>
-        <h4 class="story-author gold">Original Author: {{story.author.username}} </h4>
+        <h4 class="story-author gold">Original Author: <a class='profile-link'
+                href="/{{story.author.username}}">{{story.author.username}}</a>
+        </h4>
     </div>
     <div class="container border-top text-left pt-4">
         <p class="gold border-bottom pb-4">

@@ -12,7 +12,7 @@ async function addChapter(event) {
     ];
 
     const response = await fetch('/api/chapters', {
-        
+
         method: 'POST',
         body: JSON.stringify({
             chapter_title,
@@ -22,9 +22,8 @@ async function addChapter(event) {
         headers: { 'Content-Type': 'application/json' }
     });
 
-    if (completed.checked == true){
+    if (completed.checked == true) {
         // var completed = 1
-        console.log("anything you want")
         const response2 = await fetch(`/api/stories/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
@@ -42,11 +41,10 @@ async function addChapter(event) {
     } else {
         console.log('false');
     }
- 
+
     if (response.ok) {
         document.location.replace('/');
     } else {
-        console.log(response.statusText);
         alert(response.statusText);
     }
 }
@@ -76,7 +74,7 @@ function trendRequest() {
         method: 'GET',
         headers: headers
     }).then(function (twitterReport) {
-        return twitterReport.json()
+        return twitterReport.json();
     }).then(function (twitterReport) {
         let resultDisp = document.getElementById('inspoDisplay');
         resultDisp.innerHTML = "";
@@ -86,7 +84,7 @@ function trendRequest() {
             trendItem.textContent = twitterReport[0].trends[i].name;
             resultDisp.appendChild(trendItem);
         }
-    })
+    });
 };
 
 document.querySelector('#chapter-form').addEventListener('submit', addChapter);

@@ -51,7 +51,6 @@ router.post('/', (req, res) => {
                 req.session.username = authorData.username;
                 req.session.loggedIn = true;
 
-                console.log(authorData);
                 res.json(authorData);
             });
         })
@@ -103,7 +102,6 @@ router.post('/logout', userAuth, (req, res) => {
             res.status(204).end();
         });
     } else {
-        console.log('logout test');
         res.status(404).end();
     }
 });
@@ -117,7 +115,6 @@ router.put('/:id', (req, res) => {
     })
         .then(authorData => {
             if (!authorData) {
-                console.log('author update:', authorData);
                 res.status(404).json({ message: "We couldn't find that author." });
                 return;
             }

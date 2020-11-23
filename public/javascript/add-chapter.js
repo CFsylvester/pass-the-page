@@ -43,12 +43,12 @@ async function addChapter(event) {
         console.log('false');
     }
  
-    // if (response.ok) {
-    //     document.location.replace('/');
-    // } else {
-    //     console.log(response.statusText);
-    //     alert(response.statusText);
-    // }
+    if (response.ok) {
+        document.location.replace('/');
+    } else {
+        console.log(response.statusText);
+        alert(response.statusText);
+    }
 }
 
 

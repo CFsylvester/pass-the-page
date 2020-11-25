@@ -2,21 +2,30 @@
     <div class="row d-flex text-center mt-3">
         <div class="col-md-6 border-right">
             <h1 class="gold text-uppercase border-bottom mb-5">Dashboard</h1>
-            {{>profile-card}}
+            <div class="pt-4">
+                {{>profile-card}}
+            </div>
         </div>
         <div class="col-md-6">
-            <h1 class="maroon text-uppercase border-bottom mb-5"> YOUR STORIES </h1>
-            <a href="/dashboard/new-story"><button type="button" class="btn">START A NEW STORY</button></a>
+            <h1 class="maroon text-uppercase dashboard-your"> YOUR STORIES </h1>
+            <div class="navbar filter rounded">
+                <form class="form-inline">
+                    <a href="/dashboard/new-story"><button type="button" class="btn nav-btn">START A NEW STORY</button></a>
+                    <div class="ml-3 btn-group dropdown">
+                        <button type="button" class="btn text-uppercase nav-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Filter
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="/dashboard/new-story"><button type="button" class="dropdown-item">START A NEW STORY</button></a>
+                            <a href="/dashboard/new-story"><button type="button" class="dropdown-item">START A NEW STORY</button></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="row d-flex justify-content-center">
                 {{#each stories as |story|}}
                 {{> story-card story}}
                 {{/each}}
-            </div>
-        </div>
-    </div>
-    <div class="row d-flex justify-content-center mt-4">
-        <div class="col-6 border-dark border-left text-center">
-            <div class="container">
             </div>
         </div>
     </div>

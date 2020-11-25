@@ -168,9 +168,14 @@ li:before {
     content: '#'; 
 }
 
+/* Dashboard */
 /* User Profile */
 .profile {
     background-color: var(--maroon);
+}
+/* Your Stories */
+.dashboard-your {
+    margin-bottom: 0;
 }
 
 /* Button Styling */
@@ -179,6 +184,16 @@ li:before {
     color: var(--dark-gold);
     font-size: 1.25rem;
 }
+.nav-btn {
+    font-size: 2vh;
+}
+.filter {
+    height: 8vh;
+}
+.dropdown-item {
+    font-size: 1.5vh;
+}
+
 
 /* Link Styling */
 a:link {

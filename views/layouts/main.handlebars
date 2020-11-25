@@ -20,25 +20,22 @@
             <div>
                 <div class="text-center">
                     <a class="image" href="/">
-                        <img  class="img-fluid" src='/src/logo.png' alt="" loading="lazy">
+                        <img class="img-fluid" src='/src/logo.png' alt="" loading="lazy">
                     </a>
                 </div>
                 <nav class="navbar">
-                    <p>
-                        {{#if loggedIn}}
-                        <div class="mr-auto">
-                            <a href="/dashboard" id='dashboard-btn'>Dashboard</a>
-                        </div>
-                        {{else}}
-                        <div>
-                        </div>
-                        {{/if}}
-                    </p>
+                    {{#if loggedIn}}
+                    <div class="">
+                        <a href="/dashboard" id='dashboard-btn'>Dashboard</a>
+                    </div>
+                    <div class='center'><a href='/' id='stories-btn'>Stories</a></div>
+                    {{else}}
+                    <div>
+                    </div>
+                    {{/if}}
                     <div class="">
                         {{#if loggedIn}}
-                        {{!-- <div class="login-wrap"> --}}
                         <a href='/' id='logout-btn'>Logout</a>
-                        {{!-- </div> --}}
                         {{else}}
                         <a href="/login" id='login-btn'>Login</a>
                         {{/if}}

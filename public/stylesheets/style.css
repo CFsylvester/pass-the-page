@@ -57,10 +57,13 @@ header {
     max-width: 30vh;
 }
 .navbar {
+    display: flex;
+    justify-content: space-between;
     background-color: var(--bright-gold);
     height: 40px;
 }
-#logout-btn, #login-btn, #dashboard-btn {
+
+#logout-btn, #login-btn, #dashboard-btn, #stories-btn {
     color: var(--red);
     font-size: 30px;
     /* height: 100px; */

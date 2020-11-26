@@ -188,7 +188,7 @@ li:before {
     font-size: 2vh;
 }
 .filter {
-    height: 8vh;
+    background-color: var(--bright-gold);
 }
 .dropdown-item {
     font-size: 1.5vh;

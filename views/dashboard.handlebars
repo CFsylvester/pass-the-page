@@ -8,16 +8,16 @@
         </div>
         <div class="col-md-6">
             <h1 class="maroon text-uppercase dashboard-your"> YOUR STORIES </h1>
-            <div class="navbar filter rounded">
-                <form class="form-inline">
-                    <a href="/dashboard/new-story"><button type="button" class="btn nav-btn">START A NEW STORY</button></a>
-                    <div class="ml-3 btn-group dropdown">
+            <div class="py-2 row filter rounded">
+                <form class="mx-sm-auto form-inline">
+                    <a href="/dashboard/new-story"><button type="button" class="btn nav-btn my-sm-1">START A NEW STORY</button></a>
+                    <div class="ml-1 btn-group dropdown my-sm-1">
                         <button type="button" class="btn text-uppercase nav-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Filter
+                            <span class="selection">All Stories</span>
                         </button>
-                        <div class="dropdown-menu">
-                            <a href="/dashboard/new-story"><button type="button" class="dropdown-item">START A NEW STORY</button></a>
-                            <a href="/dashboard/new-story"><button type="button" class="dropdown-item">START A NEW STORY</button></a>
+                        <div class="dropdown-menu" role="menu">
+                            <button type="button" class="dropdown-item">All Stories</button>
+                            <button type="button" class="dropdown-item">Open Stories</button>
                         </div>
                     </div>
                 </form>
@@ -30,3 +30,5 @@
         </div>
     </div>
 </section>
+
+<script src='/javascript/filter.js'></script>

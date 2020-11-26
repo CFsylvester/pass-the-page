@@ -86,4 +86,26 @@ router.get('/new-story', (req, res) => {
     res.render('new-story', { loggedIn: req.session.loggedIn });
 });
 
+// Route to render a page to edit an existing story
+router.get('/edit-story/:id', (req, res) => {
+    Story.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(storyData => {
+            if (storyData) {
+                console.log(storyData);
+                const story = storyData.get({ plain: true });
+                res.render('edit-story', { story, loggedIn: req.session.loggedIn });
+            } else {
+                res.status(404).json({ message: "We couldn't find that story." });
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 module.exports = router;

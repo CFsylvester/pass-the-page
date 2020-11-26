@@ -107,7 +107,7 @@ router.post('/logout', userAuth, (req, res) => {
 });
 
 // Update a user's info
-router.put('/:id', (req, res) => {
+router.put('/:id', userAuth, (req, res) => {
     Author.update(req.body, {
         where: {
             id: req.params.id
@@ -127,7 +127,7 @@ router.put('/:id', (req, res) => {
 });
 
 // Delete a user
-router.delete('/:id', (req, res) => {
+router.delete('/:id', userAuth, (req, res) => {
     Author.destroy({
         where: {
             id: req.params.id

@@ -156,17 +156,23 @@ textarea {
 }
 
 /* Twitter HashTags */
-ul {
+#inspoDisplay li {
     list-style:none; 
     margin: 0; 
     padding: 0;
 }
-li {
+#inspoDisplay{
     margin-top: 1rem;
+}
+#inspoDisplay li:before {
+    content: '#'; 
+}
+/* li {
+    
 }
 li:before { 
     content: '#'; 
-}
+} */
 
 /* Dashboard */
 /* User Profile */

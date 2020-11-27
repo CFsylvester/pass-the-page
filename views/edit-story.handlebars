@@ -14,6 +14,8 @@
                     <div class="col-sm-10">
                         <textarea type='textarea' name="story-edit" id="story-edit">{{story.story_text}}</textarea>
                         <button type='submit' class="btn btn-block">UPDATE</button>
+                        <button id='delete-btn' data-storyId='{{story.id}}' class="btn btn-block">DELETE
+                            STORY</button>
                     </div>
                 </div>
             </form>
@@ -23,3 +25,4 @@
 </section>
 
 <script src="/javascript/edit-story.js"></script>
+<script src="/javascript/delete-story.js"></script>

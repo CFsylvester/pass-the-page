@@ -138,9 +138,14 @@ main {
     border-color: black;
 }
 
-.story-wrap {
+.card-wrap {
     flex-direction: column;
     align-items: center;
+    align-content: center;
+}
+
+.edit-link {
+    align-self: center;
 }
 
 /* Story-card text overflow */

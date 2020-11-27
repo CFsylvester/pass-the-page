@@ -7,10 +7,17 @@
         <div class="col-md-6">
             <h1 class="maroon text-uppercase border-bottom mb-5"> YOUR STORIES </h1>
             <a href="/dashboard/new-story"><button type="button" class="btn">START A NEW STORY</button></a>
-            <div class="story-wrap row d-flex justify-content-center mt-3">
+            <div class="story-wrap d-flex justify-content-center mt-3">
                 {{#each stories as |story|}}
-                <a href="/dashboard/edit-story/{{id}}" class="edit-btn btn">Edit {{story_title}}</a>
-                {{> story-card story}}
+                <div class='card-wrap d-flex mt-3'>
+                    {{> story-card story}}
+                    <div class='edit-link'>
+                        <a href="/dashboard/edit-story/{{id}}" class="edit-btn btn">Edit: {{story_title}}</a>
+                    </div>
+                    <div class='edit-link mt-2'>
+                        <button class="delete-btn btn">Delete: {{story_title}}</button>
+                    </div>
+                </div>
                 {{/each}}
             </div>
         </div>

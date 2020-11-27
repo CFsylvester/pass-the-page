@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Story } = require('../../models');
+const userAuth = require('../../utils/userAuth');
 
 router.get('/', (req, res) => {
     Story.findAll()
@@ -29,9 +30,9 @@ router.get('/:id', (req, res) => {
         });
 });
 
-router.post('/', (req, res) => {
+router.post('/', userAuth, (req, res) => {
     Story.create({
-        completed: 0, 
+        completed: 0,
         story_title: req.body.story_title,
         story_text: req.body.story_text,
         genre: req.body.genre,
@@ -44,7 +45,7 @@ router.post('/', (req, res) => {
         });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', userAuth, (req, res) => {
     Story.update(req.body, {
         where: {
             id: req.params.id
@@ -63,7 +64,7 @@ router.put('/:id', (req, res) => {
         });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', userAuth, (req, res) => {
     Story.destroy({
         where: {
             id: req.params.id

@@ -49,20 +49,24 @@
 
 /* Navigation */
 header {
+    padding-top: 2vh; 
+    padding-bottom: 2vh; 
     background-color: var(--bright-gold);
-    height: 175px;
+    height: 150px;
     width: 100%;
 }
-.image {
-    max-width: 30vh;
+img {
+    height: 15vh;
 }
 .navbar {
-    background-color: var(--bright-gold);
-    height: 40px;
+    background-color: var(--maroon);
+    height: 50px;
+    margin-top: 1vh; 
+
 }
-#logout-btn, #login-btn, #dashboard-btn {
-    color: var(--red);
-    font-size: 30px;
+.navbar a {
+    color: var(--dark-gold);
+    font-size: 3vh;
     /* height: 100px; */
     /* line-height: 150px; */
     /* text-align: center;  */
@@ -73,7 +77,9 @@ body {
 }
 main {
     /* overflow:auto; */
-    padding-bottom:50px;   
+    padding-bottom:50px;  
+    padding-top:50px;   
+
 }
 .wrapper {
     position: relative;
@@ -119,7 +125,6 @@ main {
     margin: 15px 0;
     border-bottom: 1px solid var(--maroon);
 }
-
 .more {
     font-size: 15px;
 }
@@ -167,12 +172,6 @@ textarea {
 #inspoDisplay li:before {
     content: '#'; 
 }
-/* li {
-    
-}
-li:before { 
-    content: '#'; 
-} */
 
 /* Dashboard */
 /* User Profile */
@@ -206,12 +205,10 @@ a:link {
     text-decoration: none;
     color: var(--red);
 }
-
 .profile-link {
     text-decoration: none;
     color: var(--red);
 }
-
 .profile-link:hover {
     text-decoration: none;
     color: var(--maroon);

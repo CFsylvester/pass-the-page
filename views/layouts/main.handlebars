@@ -19,22 +19,29 @@
         <header>
             <div>
                 <div class="text-center">
-                    <a class="image" href="/">
-                        <img  class="img-fluid" src='/src/logo.png' alt="" loading="lazy">
+                    <a href="/">
+                        <img src='/src/logo.png' alt="" loading="lazy">
                     </a>
                 </div>
-                <nav class="navbar">
-                    <p>
+                <nav class="navbar text-uppercase mr-auto">
+                    <div>
                         {{#if loggedIn}}
-                        <div class="mr-auto">
-                            <a href="/dashboard" id='dashboard-btn'>Dashboard</a>
-                        </div>
+                        <a href="/dashboard" id='dashboard-btn'>Dashboard</a>
                         {{else}}
                         <div>
                         </div>
                         {{/if}}
-                    </p>
-                    <div class="">
+                    </div>
+                    <div class="homepage">
+                        <a href="/all-stories" >All STORIES</a>
+                    </div>
+                    <div>
+                        <a href="/">Homepage</a>
+                    </div>
+                    <div>
+                        <a  href="/open-stories">open Stories</a>
+                    </div>
+                    <div>
                         {{#if loggedIn}}
                         {{!-- <div class="login-wrap"> --}}
                         <a href='/' id='logout-btn'>Logout</a>
@@ -46,7 +53,7 @@
                 </nav>
             </div>
         </header>
-        <main class="">
+        <main>
             {{{ body }}}
         </main>
         <footer>

@@ -15,7 +15,7 @@ async function loginUser(event) {
             document.location.replace('/dashboard');
         } else {
             console.log(response.statusText);
-            alert(response.statusText);
+            $('#login-modal').modal('show');
         }
     }
 };

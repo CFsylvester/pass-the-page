@@ -1,3 +1,28 @@
+<!-- Confirm Delete Modal -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="modal" id='confirm-modal'>
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header text-center justify-content-around">
+                            <h2 class='text-center'>Delete "{{story.story_title}}"?</h2>
+                        </div>
+                        <div class="modal-body text-center">
+                            <h5>Are you sure you want to delete "{{story.story_title}}"?</h5>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-around">
+                            <button class="btn btn-danger" id='delete-confirm'>Delete</button>
+                            <button class="btn btn-dark" data-dismiss='modal'>Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal End -->
+
 <section class='container mt-5 pt-3 targeted'>
     <div class="row d-flex justify-content-center">
         <div class="col-8">
@@ -14,11 +39,17 @@
                     <div class="col-sm-10">
                         <textarea type='textarea' name="story-edit" id="story-edit">{{story.story_text}}</textarea>
                         <button type='submit' class="btn btn-block">UPDATE</button>
-                        <button id='delete-btn' data-storyId='{{story.id}}' class="btn btn-block">DELETE
-                            STORY</button>
+
                     </div>
                 </div>
             </form>
+            <div class="row d-flex justify-content-end">
+                <div class="col-10">
+                    <button id='modal-btn' data-storyId='{{story.id}}' class="btn btn-block" data-toggle='modal'
+                        data-target='#confirm-modal'>DELETE
+                        STORY</button>
+                </div>
+            </div>
         </div>
         {{> need-inspo }}
     </div>

@@ -1,14 +1,23 @@
-const template = Handlebars.getTemplate("stories-template");
 
 $('#all-stories').click(function() {
-    console.log("all sotries"); 
+    console.log("all stories"); 
+    $("#all").show(); 
+    $('#open').hide();
+    $('#closed').hide();
 });
+
 $('#open-stories').click(function() {
     console.log("open stories");
+    $("#open").show(); 
+    $('#all').hide();
+    $('#closed').hide();  
 });
+
 $('#closed-stories').click(function() {
     console.log("closed stories"); 
-    console.log(template);
+    $("#closed").show(); 
+    $('#open').hide();
+    $('#all').hide();
 });
 
 $(".dropdown-menu li").click(function(){

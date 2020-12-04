@@ -1,4 +1,4 @@
-<section class='dashboard container mt-5 pt-3 targeted'>
+<section class='dashboard container targeted'>
     <div class="row d-flex text-center mt-3">
         <div class="col-md-6 border-right">
             <h1 class="gold text-uppercase border-bottom mb-5">Dashboard</h1>
@@ -14,17 +14,33 @@
                     <div class="ml-1 btn-group dropdown my-sm-1">
                         <button type="button" id="story-filter" class="btn text-uppercase nav-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Stories</button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li><button data-value="all-stories" type="button" id="all-stories">All Stories</button></li>
-                            <li><button data-value="open-stories" type="button" id="open-stories">Open Stories</button></li>
-                            <li ><button data-value="completed-stories" type="button" id="closed-stories">Completed Stories</button></li>
+                            <li><button class="btn nav-btn text-uppercase" data-value="all-stories" type="button" id="all-stories">All Stories</button></li>
+                            <li><button class="btn nav-btn text-uppercase" data-value="open-stories" type="button" id="open-stories">Open Stories</button></li>
+                            <li ><button class="btn nav-btn text-uppercase" data-value="completed-stories" type="button" id="closed-stories">Completed Stories</button></li>
                         </ul>
                     </div>
                 </form>
             </div>
             <div class="row d-flex justify-content-center" id="filter">
-                {{#each stories as |story|}}
-                {{> story-card story}}
-                {{/each}}
+                <div id="all" style="display: visible;">
+                    {{#each stories as |story|}}
+                    {{> story-card story}}
+                    {{/each}}
+                </div>
+                <div id="open" style="display: none;">
+                    {{#each stories as |story|}}
+                    {{#unless completed}}
+                    {{> story-card story}}
+                    {{/unless}}
+                    {{/each}}
+                </div>
+                <div id="closed" style="display: none;">
+                    {{#each stories as |story|}}
+                    {{#if completed}}
+                    {{> story-card story}}
+                    {{/if}}
+                    {{/each}}
+                </div>
             </div>
         </div>
     </div>

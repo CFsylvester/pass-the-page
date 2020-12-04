@@ -58,18 +58,20 @@ header {
 img {
     height: 15vh;
 }
-.navbar {
+.navigation {
     background-color: var(--maroon);
-    height: 50px;
     margin-top: 1vh; 
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding: .5rem 1rem;
+    justify-content: space-between; 
 
 }
-.navbar a {
+.navigation a {
     color: var(--dark-gold);
-    font-size: 3vh;
-    /* height: 100px; */
-    /* line-height: 150px; */
-    /* text-align: center;  */
+    font-size: 22px;
+    padding: 0 20px; 
 }
 /* Main Content */
 body {
@@ -131,7 +133,6 @@ main {
 
 /*Story Card*/
 .card {
-    /* background-color: rgb(253, 251, 237); */
     font-size: 13px;
     height: 22rem;
     width: 15rem;
@@ -192,8 +193,15 @@ textarea {
 .nav-btn {
     font-size: 2vh;
 }
+/* Story Filter */
 .filter {
     background-color: var(--bright-gold);
+}
+.dropdown-menu {
+    background-color: var(--maroon);
+    border: none; 
+    margin: -5px 0; 
+    min-width: 0; 
 }
 .dropdown-item {
     font-size: 1.5vh;

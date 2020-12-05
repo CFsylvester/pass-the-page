@@ -49,26 +49,29 @@
 
 /* Navigation */
 header {
+    padding-top: 2vh; 
+    padding-bottom: 2vh; 
     background-color: var(--bright-gold);
-    height: 175px;
+    height: 150px;
     width: 100%;
 }
-.image {
-    max-width: 30vh;
+img {
+    height: 15vh;
 }
-.navbar {
+.navigation {
+    background-color: var(--maroon);
+    margin-top: 1vh; 
+    position: relative;
     display: flex;
-    justify-content: space-between;
-    background-color: var(--bright-gold);
-    height: 40px;
-}
+    flex-wrap: wrap;
+    padding: .5rem 1rem;
+    justify-content: space-between; 
 
-#logout-btn, #login-btn, #dashboard-btn, #stories-btn {
-    color: var(--red);
-    font-size: 30px;
-    /* height: 100px; */
-    /* line-height: 150px; */
-    /* text-align: center;  */
+}
+.navigation a {
+    color: var(--dark-gold);
+    font-size: 22px;
+    padding: 0 20px; 
 }
 /* Main Content */
 body {
@@ -76,7 +79,9 @@ body {
 }
 main {
     /* overflow:auto; */
-    padding-bottom:50px;   
+    padding-bottom:50px;  
+    padding-top:50px;   
+
 }
 .wrapper {
     position: relative;
@@ -122,14 +127,12 @@ main {
     margin: 15px 0;
     border-bottom: 1px solid var(--maroon);
 }
-
 .more {
     font-size: 15px;
 }
 
 /*Story Card*/
 .card {
-    /* background-color: rgb(253, 251, 237); */
     font-size: 13px;
     height: 22rem;
     width: 15rem;
@@ -169,21 +172,26 @@ textarea {
 }
 
 /* Twitter HashTags */
-ul {
+#inspoDisplay li {
     list-style:none; 
     margin: 0; 
     padding: 0;
 }
-li {
+#inspoDisplay{
     margin-top: 1rem;
 }
-li:before { 
+#inspoDisplay li:before {
     content: '#'; 
 }
 
+/* Dashboard */
 /* User Profile */
 .profile {
     background-color: var(--maroon);
+}
+/* Your Stories */
+.dashboard-your {
+    margin-bottom: 0;
 }
 
 /* Button Styling */
@@ -192,18 +200,33 @@ li:before {
     color: var(--dark-gold);
     font-size: 1.25rem;
 }
+.nav-btn {
+    font-size: 2vh;
+}
+/* Story Filter */
+.filter {
+    background-color: var(--bright-gold);
+}
+.dropdown-menu {
+    background-color: var(--maroon);
+    border: none; 
+    margin: -5px 0; 
+    min-width: 0; 
+}
+.dropdown-item {
+    font-size: 1.5vh;
+}
+
 
 /* Link Styling */
 a:link {
     text-decoration: none;
     color: var(--red);
 }
-
 .profile-link {
     text-decoration: none;
     color: var(--red);
 }
-
 .profile-link:hover {
     text-decoration: none;
     color: var(--maroon);

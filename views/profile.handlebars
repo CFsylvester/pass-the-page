@@ -1,8 +1,7 @@
-<section class='dashboard container mt-5 pt-3'>
+<section class='dashboard container targeted'>
     <div class="row d-flex text-center mt-3">
         <div class="col-md-6 border-right">
             <h1 class="gold text-uppercase border-bottom mb-5">{{author.username}}'S PROFILE</h1>
-
             <div class="col profile rounded gold mr-5 py-3">
                 <div class="row">
                     <div class="col">
@@ -13,21 +12,45 @@
                 <h4 class="text-center">{{author.title}}</h4>
                 <p>{{author.bio}}</p>
             </div>
-
         </div>
         <div class="col-md-6">
-            <h1 class="maroon text-uppercase border-bottom mb-5"> {{author.username}}'S STORIES </h1>
-            <div class="row d-flex justify-content-center">
-                {{#each stories as |story|}}
-                {{> story-card story}}
-                {{/each}}
+            <h1 class="maroon text-uppercase dashboard-your"> {{author.username}}'S STORIES </h1>
+            <div class="py-2 row filter rounded">
+                <form class="mx-sm-auto">
+                    <a href="/dashboard/new-story"><button type="button" class="btn nav-btn my-sm-1">START A NEW STORY</button></a>
+                    <div class="ml-1 btn-group dropdown my-sm-1">
+                        <button type="button" id="story-filter" class="btn text-uppercase nav-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Stories</button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><button data-value="all-stories" type="button" id="all-stories">All Stories</button></li>
+                            <li><button data-value="open-stories" type="button" id="open-stories">Open Stories</button></li>
+                            <li ><button data-value="completed-stories" type="button" id="closed-stories">Completed Stories</button></li>
+                        </ul>
+                    </div>
+                </form>
             </div>
-        </div>
-    </div>
-    <div class="row d-flex justify-content-center mt-4">
-        <div class="col-6 border-dark border-left text-center">
-            <div class="container">
+            <div class="row d-flex justify-content-center" id="filter">
+                <div id="all" style="display: visible;">
+                    {{#each stories as |story|}}
+                    {{> story-card story}}
+                    {{/each}}
+                </div>
+                <div id="open" style="display: none;">
+                    {{#each stories as |story|}}
+                    {{#unless completed}}
+                    {{> story-card story}}
+                    {{/unless}}
+                    {{/each}}
+                </div>
+                <div id="closed" style="display: none;">
+                    {{#each stories as |story|}}
+                    {{#if completed}}
+                    {{> story-card story}}
+                    {{/if}}
+                    {{/each}}
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<script src='/javascript/filter.js'></script>
